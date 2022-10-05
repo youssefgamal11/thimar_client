@@ -1,12 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/styles/colors.dart';
 
-import '../../../styles/styles.dart';
+import '../pin_code.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormField extends StatefulWidget {
-  final String name;
-  final String image;
+  final String name, image;
+  final TextEditingController? controller;
+  final VoidCallback? onWidgetPressed;
+  final bool isCitySelection;
+  final TextInputAction inputAction;
+  final TextInputType? keyboardType;
+  final Color? labelColor;
+  final bool isPassword, isEnabled;
+  bool isSecure;
+  bool pinCodeWidgetExist;
 
-  const CustomTextFormField({Key? key, required this.name, required this.image})
+  CustomTextFormField(
+      {Key? key,
+      required this.name,
+      required this.image,
+      this.controller,
+      this.keyboardType,
+      this.inputAction = TextInputAction.next,
+      this.onWidgetPressed,
+      this.labelColor,
+      this.pinCodeWidgetExist = false,
+      this.isPassword = false,
+      this.isEnabled = true,
+      this.isSecure = true,
+      this.isCitySelection = false})
       : super(key: key);
 
   @override
@@ -16,31 +40,160 @@ class CustomTextFormField extends StatefulWidget {
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 12.0, right: 12),
-      child: Container(
-        height: 60,
-        decoration: BoxDecoration(),
-        child: TextFormField(
-          cursorHeight: 20,
-          keyboardType: TextInputType.text,
-          textDirection: TextDirection.rtl,
-          decoration: InputDecoration(
-            hintText: widget.name,
-            hintTextDirection: TextDirection.rtl,
-            hintStyle: authGreyTextStyle,
-            suffixIcon: Image.asset(widget.image),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: Colors.grey.shade300),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: Colors.grey.shade300),
+    return Row(
+      children: [
+        widget.pinCodeWidgetExist ? const PinCodeWidget() : const Text(''),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              if (!widget.isEnabled) {
+                widget.onWidgetPressed!();
+              }
+            },
+            child: Container(
+              height: 60.h,
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15.r),
+                border: Border.all(color: Colors.grey.shade300),
+              ),
+              child: TextFormField(
+                cursorHeight: 20.h,
+                onTap: () {},
+                cursorColor: greenFontColor,
+                keyboardType: widget.keyboardType,
+                textDirection: TextDirection.rtl,
+                controller: widget.controller,
+                enabled: widget.isEnabled,
+                textInputAction: widget.inputAction,
+                obscureText: widget.isSecure,
+                style: const TextStyle(color: greenFontColor),
+                decoration: InputDecoration(
+                    labelText: widget.name,
+                    hintMaxLines: 1,
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    labelStyle: TextStyle(
+                      color: widget.labelColor ?? const Color(0xffB1B1B1),
+                      fontSize: 15.sp,
+                      fontFamily: 'Tajawel',
+                    ),
+                    prefixIcon: Image.asset(widget.image),
+                    suffixIcon: widget.isPassword
+                        ? GestureDetector(
+                            onTap: () {
+                              widget.isSecure = !widget.isSecure;
+                              setState(() {});
+                            },
+                            child: Icon(widget.isSecure
+                                ? Icons.visibility_off
+                                : Icons.visibility))
+                        : null),
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
+
+// class CustomTextFormFieldForPassword extends StatefulWidget {
+//   final String name;
+//   final String image;
+//   final TextEditingController? controller;
+//   final onWidgetPressed;
+//   final isEnabled;
+//   final isCitySelection;
+//   final inputAction;
+//   final TextInputType? keyboardType;
+//   final labelColor;
+//   bool isPassword;
+//   bool isSecure;
+
+//   CustomTextFormFieldForPassword(
+//       {Key? key,
+//       required this.name,
+//       required this.image,
+//       this.controller,
+//       this.keyboardType,
+//       this.inputAction = TextInputAction.next,
+//       this.onWidgetPressed,
+//       this.labelColor,
+//       this.isPassword = false,
+//       this.isEnabled = true,
+//       this.isSecure = true,
+//       this.isCitySelection = false})
+//       : super(key: key);
+
+//   @override
+//   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+// }
+
+// class _CustomTextFormFieldForPasswordState extends State<CustomTextFormField> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(left: 12.0, right: 12),
+//       child: GestureDetector(
+//         onTap: () {
+//           if (!widget.isEnabled) {
+//             widget.onWidgetPressed();
+//           }
+//         },
+//         child: Container(
+//           height: 60.h,
+//           alignment: Alignment.center,
+//           decoration: BoxDecoration(
+//             color: Colors.white,
+//             borderRadius: BorderRadius.circular(15.r),
+//             border: Border.all(color: Colors.grey.shade300),
+//           ),
+//           child: TextFormField(
+//             cursorHeight: 20.h,
+//             cursorColor: greenFontColor,
+//             keyboardType: widget.keyboardType,
+//             textDirection: TextDirection.rtl,
+//             controller: widget.controller,
+//             enabled: widget.isEnabled,
+//             textInputAction: widget.inputAction,
+//             obscureText: widget.isSecure,
+//             decoration: InputDecoration(
+//                 labelText: widget.name,
+//                 hintMaxLines: 1,
+//                 border: InputBorder.none,
+//                 focusedBorder: InputBorder.none,
+//                 labelStyle: TextStyle(
+//                   color: widget.labelColor ?? const Color(0xffB1B1B1),
+//                   fontSize: 15.sp,
+//                   fontFamily: 'Tajawel',
+//                 ),
+//                 prefixIcon: Image.asset(widget.image),
+//                 suffixIcon: widget.isPassword
+//                     ? IconButton(
+//                         splashColor: Colors.transparent,
+//                         highlightColor: Colors.transparent,
+//                         onPressed: () {
+//                           if (widget.isSecure == true) {
+//                             setState(() {
+//                               widget.isSecure = false;
+//                             });
+//                           } else {
+//                             setState(() {
+//                               widget.isSecure = true;
+//                             });
+//                           }
+//                           ;
+//                         },
+//                         icon: widget.isSecure
+//                             ? Icon(Icons.visibility_off)
+//                             : Icon(Icons.visibility))
+//                     : null),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

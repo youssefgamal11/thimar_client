@@ -1,10 +1,24 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kiwi/kiwi.dart';
+import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
-import '../../../styles/styles.dart';
+import 'package:thimar_app/generated/locale_keys.g.dart';
+import 'package:thimar_app/screens/auth/confirm_code/view.dart';
+import 'package:thimar_app/screens/auth/forget_password/bloc/bloc.dart';
+import 'package:thimar_app/screens/auth/login/view.dart';
+
+import '../../../core/styles/styles.dart';
+import '../../../core/toast.dart';
+import '../../../gen/assets.gen.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({Key? key}) : super(key: key);
+  ForgetPasswordScreen({Key? key}) : super(key: key);
+  final bloc = KiwiContainer().resolve<ForgetPasswordBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -12,58 +26,97 @@ class ForgetPasswordScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 5.0, right: 5),
-            child: Column(children: [
-              const Image(
-                image: AssetImage('assets/images/app_logo.png'),
-                width: 120,
-                height: 150,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 6.0, top: 20),
-                  child: Text(
-                    'نسيت كلمه المرور',
-                    style: authGreenTextStyle,
-                  ),
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Center(
+                child: Image(
+                  image: AssetImage(Assets.images.appLogo.path),
+                  width: 120.w,
+                  height: 150.h,
                 ),
               ),
-              const SizedBox(
-                height: 7,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Text(
-                    'ادخل رقم الجوال المرتبط بحسابك',
-                    style: authGreyTextStyle,
-                  ),
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    end: 15.0.w, top: 20.h, start: 10.h),
+                child: Text(
+                  LocaleKeys.forgetPasswordWithout.tr(),
+                  style: authGreenTextStyle,
                 ),
               ),
-              const SizedBox(height: 20),
-              const CustomTextFormField(
-                name: " رقم الجوال",
-                image: "assets/icons/auth/phone.png",
+              SizedBox(
+                height: 7.h,
               ),
-              const SizedBox(
-                height: 30,
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    end: 15.0.w, bottom: 20.h, start: 10.h),
+                child: Text(
+                  LocaleKeys.enterConnectedPhone.tr(),
+                  style: authGreyTextStyle,
+                ),
               ),
-              const AuthButton(buttonName: 'تأكيد رقم الجوال'),
-              const SizedBox(
-                height: 40,
+              Padding(
+                padding: EdgeInsetsDirectional.only(start: 8.0.w),
+                child: CustomTextFormField(
+                  controller: bloc.phoneNumber,
+                  name: LocaleKeys.phoneNumber.tr(),
+                  keyboardType: TextInputType.number,
+                  image: Assets.icons.auth.phone.path,
+                  isSecure: false,
+                  pinCodeWidgetExist: true,
+                ),
               ),
-              RichText(
-                  text: TextSpan(
-                      text: 'ليس لديك حساب ؟',
-                      style: authGreenTextStyle.copyWith(fontSize: 15),
-                      children: [
-                    TextSpan(
-                        text: 'تسجيل الدخول',
-                        style: authGreenTextStyle.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 15))
-                  ])),
+              SizedBox(
+                height: 30.h,
+              ),
+              BlocConsumer(
+                  bloc: bloc,
+                  listener: (context, state) {
+                    if (state is ForgetPasswordSuccessState) {
+                      navigateTo(
+                          leaveHistory: false,
+                          page: ConfirmCodeScreen(
+                            phone: bloc.phoneNumber.text,
+                          ));
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is ForgetPasswordLoadingState) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      return AuthButton(
+                        buttonName: LocaleKeys.confirmPhoneNumber.tr(),
+                        function: () {
+                          bloc.unfocus(context: context);
+                          if (bloc.phoneNumber.text.trim().isNotEmpty) {
+                            bloc.add(ForgetPasswordStartEvent());
+                          } else {
+                            Toast.show(
+                                LocaleKeys.PleaseWriteYourPhoneNumber.tr(),
+                                context);
+                          }
+                        },
+                      );
+                    }
+                  }),
+              SizedBox(
+                height: 40.h,
+              ),
+              Center(
+                child: RichText(
+                    text: TextSpan(
+                        text: LocaleKeys.haveAccount.tr(),
+                        style: authGreenTextStyle.copyWith(fontSize: 15.sp),
+                        children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => navigateTo(
+                                leaveHistory: false, page: const LoginScreen()),
+                          text: LocaleKeys.login.tr(),
+                          style: authGreenTextStyle.copyWith(
+                              fontWeight: FontWeight.bold, fontSize: 15.sp))
+                    ])),
+              ),
             ]),
           ),
         ),

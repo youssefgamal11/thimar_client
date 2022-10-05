@@ -1,14 +1,47 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:thimar_app/screens/auth/active_account/view.dart';
-import 'package:thimar_app/screens/auth/confirm_code/view.dart';
-import 'package:thimar_app/screens/auth/forget_password/view.dart';
-import 'package:thimar_app/screens/auth/signup/view.dart';
-
-import 'screens/auth/change_password/view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/cache_helper.dart';
+import 'package:thimar_app/core/naviagtion.dart';
+import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/core/unfocus.dart';
+import 'package:thimar_app/generated/codegen_loader.g.dart';
+import 'core/bloc_observer.dart';
+import 'core/firebase_notification.dart';
 import 'screens/auth/login/view.dart';
+import 'core/Kiwi.dart';
+import 'package:flutter/services.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await CacheHelper.init();
+  await EasyLocalization.ensureInitialized();
+  await GlobalNotification().setUpFirebase();
+
+  initKiwi();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: greenFontColor,
+  ));
+
+  runApp(
+    EasyLocalization(
+      child: ScreenUtilInit(
+        designSize: const Size(360, 752),
+        builder: (context, child) => const MyApp(),
+      ),
+      supportedLocales: const [Locale('ar'), Locale('en')],
+      path: 'assets/translations',
+      startLocale: const Locale('ar'),
+      fallbackLocale: const Locale('en'),
+      saveLocale: true,
+      assetLoader: const CodegenLoader(),
+    ),
+  );
+  // ignore: unused_label
+  blocObserver:
+  MyBlocObserver();
 }
 
 class MyApp extends StatelessWidget {
@@ -18,8 +51,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      navigatorKey: navigatorKey,
+      theme: ThemeData(
+          fontFamily: 'Tajawal',
+          primaryColor: greenFontColor,
+          primarySwatch: buildMaterialColor(greenFontColor),
+          progressIndicatorTheme:
+              const ProgressIndicatorThemeData(color: greenButtonColor)),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      builder: (context, child) => UnFocus(
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: .85),
+          child: child!,
+        ),
+      ),
+      home: const LoginScreen(),
     );
   }
 }

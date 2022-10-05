@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'colors.dart';
 
 var authGreenTextStyle = TextStyle(
     color: greenFontColor,
-    fontSize: 18,
+    fontSize: 18.sp,
     fontFamily: 'Tajawal',
     fontWeight: FontWeight.w400);
 

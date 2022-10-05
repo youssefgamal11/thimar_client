@@ -1,10 +1,35 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kiwi/kiwi.dart';
+import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
-import '../../../styles/styles.dart';
+import 'package:thimar_app/gen/assets.gen.dart';
+import 'package:thimar_app/screens/auth/forget_password/view.dart';
+import 'package:thimar_app/screens/auth/login/bloc/bloc.dart';
+import 'package:thimar_app/screens/auth/signup/view.dart';
+import 'package:thimar_app/screens/home/view.dart';
+import '../../../core/styles/styles.dart';
+import '../../../core/toast.dart';
+import '../../../generated/locale_keys.g.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final bloc = KiwiContainer().resolve<LoginBloc>()..init();
+  @override
+  void dispose() {
+    bloc.clearFields();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,81 +37,122 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 5.0, right: 5),
-            child: Column(children: [
-              const Image(
-                image: AssetImage('assets/images/app_logo.png'),
-                width: 120,
-                height: 150,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10.0, top: 20),
-                  child: Text(
-                    'مرحبا بك مره اخري ',
-                    style: authGreenTextStyle,
-                  ),
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Center(
+                child: Image(
+                  image: AssetImage(Assets.images.appLogo.path),
+                  width: 120.w,
+                  height: 150.h,
                 ),
               ),
-              const SizedBox(
-                height: 7,
+              SizedBox(
+                height: 20.h,
               ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Text(
-                    'يمكنك تسجيل الدخول الان',
-                    style: authGreyTextStyle,
-                  ),
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    end: 15.0.w, start: 15.w, bottom: 7.h),
+                child: Text(
+                  LocaleKeys.helloAgain.tr(),
+                  style: authGreenTextStyle,
                 ),
               ),
-              const SizedBox(height: 20),
-              const CustomTextFormField(
-                name: "رقم الجوال",
-                image: "assets/icons/auth/phone.png",
+              Padding(
+                padding: EdgeInsetsDirectional.only(start: 15.w),
+                child: Text(
+                  LocaleKeys.loginNow.tr(),
+                  style: authGreyTextStyle,
+                ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsetsDirectional.only(start: 10.w, bottom: 10.h),
+                child: CustomTextFormField(
+                  name: LocaleKeys.phone.tr(),
+                  image: Assets.icons.auth.phone.path,
+                  controller: bloc.phoneController,
+                  keyboardType: TextInputType.phone,
+                  isSecure: false,
+                  pinCodeWidgetExist: true,
+                ),
               ),
-              const CustomTextFormField(
-                name: "كلمه المرور",
-                image: "assets/icons/auth/password.png",
+              CustomTextFormField(
+                name: LocaleKeys.password.tr(),
+                image: Assets.icons.auth.password.path,
+                controller: bloc.passwordController,
+                isPassword: true,
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      navigateTo(
+                          leaveHistory: true, page: ForgetPasswordScreen());
+                      bloc.clearFields();
+                    },
                     child: Text(
-                      ' نسيت كلمه المرور ؟',
+                      LocaleKeys.forgetPassword.tr(),
                       style: authGreyTextStyle,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
-              const AuthButton(buttonName: 'تسجيل الدخول'),
-              const SizedBox(
-                height: 40,
+              BlocConsumer(
+                  bloc: bloc,
+                  listener: (context, state) async {
+                    if (state is LoginSucessState) {
+                      Toast.show(LocaleKeys.loginSuccess.tr(), context);
+                      navigateTo(leaveHistory: false, page: const Homepage());
+                      bloc.clearFields();
+                    } else if (state is LoginFailState) {
+                      Toast.show(LocaleKeys.loginFailed.tr(), context);
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is LoginLoadingState) {
+                      return const CircularProgressIndicator();
+                    }
+                    return AuthButton(
+                      buttonName: LocaleKeys.login.tr(),
+                      function: () {
+                        // bloc.add(LoginEventStart());
+                        bloc.unfocus(context);
+                        if (bloc.isDataVaild(context)) {
+                          bloc.add(LoginEventStart());
+                        }
+                      },
+                    );
+                  }),
+              SizedBox(
+                height: 40.h,
               ),
-              RichText(
-                  text: TextSpan(
-                      text: 'ليس لديك حساب ؟',
-                      style: authGreenTextStyle.copyWith(fontSize: 15),
-                      children: [
-                    TextSpan(
-                        text: 'تسجيل الان',
-                        style: authGreenTextStyle.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 15))
-                  ])),
+              Center(
+                child: RichText(
+                    text: TextSpan(
+                        text: LocaleKeys.noAccount.tr(),
+                        style: authGreenTextStyle.copyWith(fontSize: 15.sp),
+                        children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              navigateTo(
+                                  leaveHistory: true, page: SignUpScreen());
+                              bloc.clearFields();
+                            },
+                          text: LocaleKeys.registerNow.tr(),
+                          style: authGreenTextStyle.copyWith(
+                              fontWeight: FontWeight.bold, fontSize: 15.sp))
+                    ])),
+              ),
             ]),
           ),
         ),

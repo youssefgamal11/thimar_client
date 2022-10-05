@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769328981717",
+    "project_id": "thimar-fa55a",
+    "storage_bucket": "thimar-fa55a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769328981717:android:29044e075084c2da31e45c",
+        "android_client_info": {
+          "package_name": "com.example.thimar_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769328981717-eo82g77o369snpklitn17qgn4mve79mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeQIERtM5npO1IKFoAoqcdQAFh0VsT2eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769328981717-eo82g77o369snpklitn17qgn4mve79mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

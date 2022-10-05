@@ -1,24 +1,37 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import '../../../styles/color.dart';
-import '../../../styles/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/core/styles/styles.dart';
 
 class AuthButton extends StatelessWidget {
   final String buttonName;
-  const AuthButton({Key? key, required this.buttonName}) : super(key: key);
+  final VoidCallback? function;
+
+  const AuthButton({Key? key, required this.buttonName, this.function})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15.0, right: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: SizedBox(
-        width: double.infinity,
-        height: 55,
+        width: double.infinity.w,
+        height: 55.h,
         child: TextButton(
             style: TextButton.styleFrom(
                 backgroundColor: greenButtonColor,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
-            onPressed: () {},
+                    borderRadius: BorderRadius.circular(10.r))),
+            onPressed: () {
+              var currentFocus = FocusScope.of(context);
+
+              if (!currentFocus.hasPrimaryFocus) {
+                currentFocus.unfocus();
+              }
+              function!();
+            },
             child: Text(
               buttonName,
               style: authGreyTextStyle.copyWith(color: Colors.white),
@@ -29,26 +42,30 @@ class AuthButton extends StatelessWidget {
 }
 
 class ResendButton extends StatelessWidget {
-  final String ButtonName;
-  const ResendButton({Key? key, required this.ButtonName}) : super(key: key);
+  final String buttonName;
+  final VoidCallback? function;
+  final bool? isComplete;
+  const ResendButton(
+      {Key? key, required this.buttonName, this.function, this.isComplete})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15.0, right: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: SizedBox(
-        width: 200,
-        height: 50,
+        width: 200.w,
+        height: 50.h,
         child: TextButton(
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                    side: BorderSide(color: greenFontColor),
-                    borderRadius: BorderRadius.circular(17))),
-            onPressed: () {},
+                    side: const BorderSide(color: greenFontColor),
+                    borderRadius: BorderRadius.circular(17.r))),
+            onPressed: function,
             child: Text(
-              ButtonName,
-              style: authGreenTextStyle.copyWith(fontSize: 15),
+              buttonName,
+              style: authGreenTextStyle.copyWith(fontSize: 15.sp),
             )),
       ),
     );

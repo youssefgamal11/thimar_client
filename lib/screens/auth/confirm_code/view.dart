@@ -1,67 +1,78 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kiwi/kiwi.dart';
+import 'package:thimar_app/core/naviagtion.dart';
+import 'package:thimar_app/core/toast.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
-import 'package:thimar_app/core/widgets/inputs/inputs.dart';
-import '../../../styles/color.dart';
-import '../../../styles/styles.dart';
+import 'package:thimar_app/screens/auth/change_password/view.dart';
+import 'package:thimar_app/screens/auth/confirm_code/bloc/bloc.dart';
+import 'package:thimar_app/screens/auth/login/view.dart';
+import '../../../core/styles/colors.dart';
+import '../../../core/styles/styles.dart';
+import '../../../gen/assets.gen.dart';
+import '../../../generated/locale_keys.g.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class ConfirmCodeScreen extends StatefulWidget {
-  const ConfirmCodeScreen({Key? key}) : super(key: key);
+  const ConfirmCodeScreen({Key? key, required this.phone}) : super(key: key);
+  final String phone;
 
   @override
   State<ConfirmCodeScreen> createState() => _ConfirmCodeScreenState();
 }
 
 class _ConfirmCodeScreenState extends State<ConfirmCodeScreen> {
+  final bloc = KiwiContainer().resolve<ConfirmCodeBloc>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 5.0, right: 5),
-            child: Column(children: [
-              const Image(
-                image: AssetImage('assets/images/app_logo.png'),
-                width: 120,
-                height: 150,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10.0, top: 20),
-                  child: Text(
-                    'نسيت كلمه المرور',
-                    style: authGreenTextStyle,
-                  ),
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Center(
+                child: Image(
+                  image: AssetImage(Assets.images.appLogo.path),
+                  width: 120.w,
+                  height: 150.h,
                 ),
               ),
-              const SizedBox(
-                height: 7,
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    start: 10.0.w, top: 20.h, bottom: 7.h),
+                child: Text(
+                  LocaleKeys.forgetPasswordWithout.tr(),
+                  style: authGreenTextStyle,
+                ),
               ),
-              Align(
-                alignment: Alignment.topRight,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: RichText(
-                  textDirection: TextDirection.rtl,
                   text: TextSpan(
-                      text: ' الكود المكون من 4 ارقام المرسل على رقم الجوال ',
-                      style: authGreyTextStyle.copyWith(fontSize: 15),
+                      text: LocaleKeys.enterOTPCode.tr(),
+                      style: authGreyTextStyle.copyWith(fontSize: 15.sp),
                       children: [
                         TextSpan(
-                            text: '  46465464',
-                            style: authGreyTextStyle.copyWith(fontSize: 15)),
+                            text: widget.phone,
+                            style: authGreyTextStyle.copyWith(fontSize: 15.sp)),
                         TextSpan(
-                            text: '  تغير رقم الجوال',
+                            text: LocaleKeys.changePhoneNumber.tr(),
                             style: authGreenTextStyle.copyWith(
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 decoration: TextDecoration.underline))
                       ]),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8),
+                padding: EdgeInsetsDirectional.only(start: 8.0.w, end: 8.w),
                 child: PinCodeTextField(
                   appContext: context,
                   length: 4,
@@ -69,86 +80,159 @@ class _ConfirmCodeScreenState extends State<ConfirmCodeScreen> {
                   enableActiveFill: true,
                   animationType: AnimationType.scale,
                   pinTheme: PinTheme(
-                      fieldWidth: 67,
-                      fieldHeight: 55,
+                      fieldWidth: 67.w,
+                      fieldHeight: 55.h,
                       shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                       errorBorderColor: Colors.red,
                       activeFillColor: Colors.white,
                       inactiveFillColor: Colors.white,
                       selectedFillColor: Colors.white,
                       inactiveColor: Colors.grey.shade200),
                   onChanged: (String value) {},
+                  onCompleted: (value) {
+                    bloc.codeNumber = value;
+                  },
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 15.h,
               ),
-              const AuthButton(buttonName: 'تأكيد الكود '),
-              const SizedBox(height: 15),
-              Text(
-                "لم تستلم الكود ؟",
-                style: authGreyTextStyle,
+              BlocConsumer(
+                  bloc: bloc,
+                  listener: (context, state) {
+                    if (state is ConfirmCodeSucessState) {
+                      Toast.show(LocaleKeys.confirmCodeSuccess.tr(), context);
+                      navigateTo(
+                          leaveHistory: false,
+                          page: ChangePasswordScreen(
+                            code: bloc.codeNumber.toString(),
+                            phone: bloc.phoneNumber.toString(),
+                          ));
+                    } else if (state is ConfirmCodeFailState) {
+                      Toast.show(state.error!, context);
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is ConfirmCodeLoadingState) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    return AuthButton(
+                      buttonName: LocaleKeys.confirmCode.tr(),
+                      function: () {
+                        if (bloc.codeNumber != null) {
+                          bloc.add(ConfirmCodeStartEvent(phone: widget.phone));
+                        } else {
+                          Toast.show(LocaleKeys.writeYourData.tr(), context);
+                        }
+                      },
+                    );
+                  }),
+              SizedBox(height: 15.h),
+              Center(
+                child: Text(
+                  LocaleKeys.notHaveCode.tr(),
+                  style: authGreyTextStyle,
+                ),
               ),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
-              Text(
-                'يمكنك اعاده ارسال الكود بعد ',
-                style: authGreyTextStyle,
+              Center(
+                child: Text(
+                  LocaleKeys.youCanSendCodeAgainAfter.tr(),
+                  style: authGreyTextStyle,
+                ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 15.h,
               ),
-              CircularCountDownTimer(
-                duration: 1200,
-                initialDuration: 0,
-                controller: CountDownController(),
-                width: 90,
-                height: 80,
-                ringColor: Colors.grey[300]!,
-                ringGradient: null,
-                fillColor: greenFontColor,
-                fillGradient: null,
-                backgroundColor: Colors.white,
-                backgroundGradient: null,
-                strokeWidth: 3.0,
-                strokeCap: StrokeCap.round,
-                textStyle: authGreenTextStyle.copyWith(
-                    fontSize: 30, fontWeight: FontWeight.w400),
-                textFormat: CountdownTextFormat.MM_SS,
-                isReverse: false,
-                isReverseAnimation: false,
-                isTimerTextShown: true,
-                autoStart: true,
-                onStart: () {
-                  debugPrint('Countdown Started');
-                },
-                onComplete: () {
-                  debugPrint('Countdown Ended');
-                },
-                onChange: (String timeStamp) {
-                  debugPrint('Countdown Changed $timeStamp');
-                },
+              Center(
+                child: CircularCountDownTimer(
+                  duration: 60,
+                  initialDuration: 0,
+                  controller: CountDownController(),
+                  width: 80.w,
+                  height: 80.h,
+                  ringColor: Colors.grey[300]!,
+                  ringGradient: null,
+                  fillColor: greenFontColor,
+                  fillGradient: null,
+                  backgroundColor: Colors.white,
+                  backgroundGradient: null,
+                  strokeWidth: 3.0.w,
+                  strokeCap: StrokeCap.round,
+                  textStyle: authGreenTextStyle.copyWith(
+                      fontSize: 30.sp, fontWeight: FontWeight.w400),
+                  textFormat: CountdownTextFormat.MM_SS,
+                  isReverse: false,
+                  isReverseAnimation: false,
+                  isTimerTextShown: true,
+                  autoStart: true,
+                  onStart: () {
+                    debugPrint('Countdown Started');
+                  },
+                  onComplete: () {
+                    debugPrint('Countdown Ended');
+                    setState(() {
+                      bloc.isComplete = true;
+                    });
+                  },
+                  onChange: (String timeStamp) {
+                    debugPrint('Countdown Changed $timeStamp');
+                  },
+                ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 15.h,
               ),
-              const ResendButton(ButtonName: 'اعاده الارسال '),
-              const SizedBox(
-                height: 40,
+              Center(
+                child: BlocConsumer(
+                  bloc: bloc,
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    if (state is ResendCodeLoadingState) {
+                      return const CircularProgressIndicator();
+                    } else if (state is ResendCodeFailState) {
+                      return Text(state.error.toString());
+                    }
+
+                    if (bloc.isComplete) {
+                      return ResendButton(
+                          buttonName: LocaleKeys.resend.tr(),
+                          function: bloc.isComplete
+                              ? () {
+                                  bloc.add(ResendCodeStartEvent(
+                                      phone: widget.phone));
+                                }
+                              : () {
+                                  return;
+                                });
+                    } else {
+                      return const Text('');
+                    }
+                  },
+                ),
               ),
-              RichText(
-                  text: TextSpan(
-                      text: ' لديك حساب بالفعل ؟',
-                      style: authGreenTextStyle.copyWith(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                      children: [
-                    TextSpan(
-                        text: 'تسجيل الدخول',
+              SizedBox(
+                height: 40.h,
+              ),
+              Center(
+                child: RichText(
+                    text: TextSpan(
+                        text: LocaleKeys.haveAccount.tr(),
                         style: authGreenTextStyle.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 15))
-                  ])),
+                            fontSize: 15.sp, fontWeight: FontWeight.w400),
+                        children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => navigateTo(
+                                leaveHistory: false, page: const LoginScreen()),
+                          text: LocaleKeys.login.tr(),
+                          style: authGreenTextStyle.copyWith(
+                              fontWeight: FontWeight.bold, fontSize: 15.sp))
+                    ])),
+              ),
             ]),
           ),
         ),
