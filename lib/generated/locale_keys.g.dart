@@ -1,8 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: constant_identifier_names
-
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const helloAgain = 'helloAgain';
   static const loginNow = 'loginNow';
   static const enterName = 'enterName';
@@ -172,8 +170,7 @@ abstract class LocaleKeys {
   static const tryAgain = 'tryAgain';
   static const confirmPassword = 'confirmPassword';
   static const newPassword = 'newPassword';
-  static const PleaseWriteYourConfirmPassword =
-      'PleaseWriteYourConfirmPassword';
+  static const PleaseWriteYourConfirmPassword = 'PleaseWriteYourConfirmPassword';
   static const PleaseWriteYourPassword = 'PleaseWriteYourPassword';
   static const PleaseSelectYourCity = 'PleaseSelectYourCity';
   static const PhoneNotValid = 'PhoneNotValid';
@@ -211,6 +208,16 @@ abstract class LocaleKeys {
   static const amountMustBeGreaterThanOne = 'amountMustBeGreaterThanOne';
   static const amountFinishedNoMore = 'amountFinishedNoMore';
   static const totalAfterDiscount = 'totalAfterDiscount';
+  static const dliverTo = 'dliverTo';
   static const changePasswordSucced = 'changePasswordSucced';
   static const changePasswordFailed = 'changePasswordFailed';
+  static const vegtables = 'vegtables';
+  static const fruits = 'fruits';
+  static const steak = 'steak';
+  static const dates = 'dates';
+  static const almond = 'almond';
+  static const appName = 'appName';
+  static const spices = 'spices';
+  static const addToTheCart = 'addToTheCart';
+
 }

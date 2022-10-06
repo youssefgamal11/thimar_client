@@ -49,6 +49,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/camera.png
   AssetGenImage get camera => const AssetGenImage('assets/images/camera.png');
 
+  /// File path: assets/images/carrots.png
+  AssetGenImage get carrots => const AssetGenImage('assets/images/carrots.png');
+
   /// File path: assets/images/cart.png
   AssetGenImage get cart => const AssetGenImage('assets/images/cart.png');
 
@@ -74,8 +77,15 @@ class $AssetsImagesGen {
 
   $AssetsImagesEmptyGen get empty => const $AssetsImagesEmptyGen();
 
+  /// File path: assets/images/favourite.png
+  AssetGenImage get favourite =>
+      const AssetGenImage('assets/images/favourite.png');
+
   /// File path: assets/images/filter.png
   AssetGenImage get filter => const AssetGenImage('assets/images/filter.png');
+
+  /// File path: assets/images/home.png
+  AssetGenImage get home => const AssetGenImage('assets/images/home.png');
 
   /// File path: assets/images/join_us.png
   AssetGenImage get joinUs => const AssetGenImage('assets/images/join_us.png');
@@ -100,6 +110,13 @@ class $AssetsImagesGen {
 
   $AssetsImagesMyAccountGen get myAccount => const $AssetsImagesMyAccountGen();
 
+  /// File path: assets/images/notification.png
+  AssetGenImage get notification =>
+      const AssetGenImage('assets/images/notification.png');
+
+  /// File path: assets/images/orders.png
+  AssetGenImage get orders => const AssetGenImage('assets/images/orders.png');
+
   /// File path: assets/images/pass_green.png
   AssetGenImage get passGreen =>
       const AssetGenImage('assets/images/pass_green.png');
@@ -111,6 +128,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/pay_transaction.png
   AssetGenImage get payTransaction =>
       const AssetGenImage('assets/images/pay_transaction.png');
+
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
   /// File path: assets/images/phone.png
   AssetGenImage get phone => const AssetGenImage('assets/images/phone.png');
@@ -139,8 +159,15 @@ class $AssetsImagesGen {
   /// File path: assets/images/time.png
   AssetGenImage get time => const AssetGenImage('assets/images/time.png');
 
+  /// File path: assets/images/tomato.png
+  AssetGenImage get tomato => const AssetGenImage('assets/images/tomato.png');
+
   /// File path: assets/images/user.png
   AssetGenImage get user => const AssetGenImage('assets/images/user.png');
+
+  /// File path: assets/images/vegtables.png
+  AssetGenImage get vegtables =>
+      const AssetGenImage('assets/images/vegtables.png');
 
   /// File path: assets/images/vip.png
   AssetGenImage get vip => const AssetGenImage('assets/images/vip.png');
@@ -155,6 +182,7 @@ class $AssetsImagesGen {
         back,
         calling,
         camera,
+        carrots,
         cart,
         cityGreen,
         completeCartSuccess,
@@ -162,16 +190,21 @@ class $AssetsImagesGen {
         delete,
         drop,
         edit,
+        favourite,
         filter,
+        home,
         joinUs,
         location,
         message,
         money,
         moneyLight,
         moneyTransaction,
+        notification,
+        orders,
         passGreen,
         password,
         payTransaction,
+        person,
         phone,
         phoneGreen,
         saudiFlag,
@@ -179,7 +212,9 @@ class $AssetsImagesGen {
         splashBg,
         splashMainBg,
         time,
+        tomato,
         user,
+        vegtables,
         vip,
         visa
       ];
@@ -425,6 +460,12 @@ class $AssetsImagesMyAccountGen {
 class $AssetsImagesSvgImagesGen {
   const $AssetsImagesSvgImagesGen();
 
+  /// File path: assets/images/svg_images/add.svg
+  String get add => 'assets/images/svg_images/add.svg';
+
+  /// File path: assets/images/svg_images/almond.svg
+  String get almond => 'assets/images/svg_images/almond.svg';
+
   /// File path: assets/images/svg_images/app_logo.png
   AssetGenImage get appLogo =>
       const AssetGenImage('assets/images/svg_images/app_logo.png');
@@ -436,8 +477,14 @@ class $AssetsImagesSvgImagesGen {
   AssetGenImage get date =>
       const AssetGenImage('assets/images/svg_images/date.png');
 
+  /// File path: assets/images/svg_images/dates.svg
+  String get dates => 'assets/images/svg_images/dates.svg';
+
   /// File path: assets/images/svg_images/filter.svg
   String get filter => 'assets/images/svg_images/filter.svg';
+
+  /// File path: assets/images/svg_images/fruit.svg
+  String get fruit => 'assets/images/svg_images/fruit.svg';
 
   /// File path: assets/images/svg_images/line.svg
   String get line => 'assets/images/svg_images/line.svg';
@@ -458,26 +505,42 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/search.svg
   String get search => 'assets/images/svg_images/search.svg';
 
+  /// File path: assets/images/svg_images/spices.svg
+  String get spices => 'assets/images/svg_images/spices.svg';
+
+  /// File path: assets/images/svg_images/steak.svg
+  String get steak => 'assets/images/svg_images/steak.svg';
+
   /// File path: assets/images/svg_images/time.png
   AssetGenImage get time =>
       const AssetGenImage('assets/images/svg_images/time.png');
+
+  /// File path: assets/images/svg_images/vegetable.svg
+  String get vegetable => 'assets/images/svg_images/vegetable.svg';
 
   /// File path: assets/images/svg_images/wallet.svg
   String get wallet => 'assets/images/svg_images/wallet.svg';
 
   /// List of all assets
   List<dynamic> get values => [
+        add,
+        almond,
         appLogo,
         creditCard,
         date,
+        dates,
         filter,
+        fruit,
         line,
         money,
         papers,
         rest,
         saudi,
         search,
+        spices,
+        steak,
         time,
+        vegetable,
         wallet
       ];
 }

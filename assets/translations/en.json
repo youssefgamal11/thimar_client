@@ -208,5 +208,21 @@
   "amountFinished": "No Amount Available",
   "amountMustBeGreaterThanOne": "Amount Must Be Grater Than One",
   "amountFinishedNoMore": "No More Amount",
-  "totalAfterDiscount": "Total After Products Discount"
+  "totalAfterDiscount": "Total After Products Discount",
+  "dliverTo": "dliver to",
+  "changePasswordSucced" : "password changed successfully",
+  "changePasswordFailed" : "change password failed " ,
+  "appName":"salet samar",
+  "vegtables":"vegtables",
+  "fruits":"fruits",  
+  "steak":"meat",
+  "dates":"dates",
+  "almond":"almond",
+  "spices": "spices",
+  "addToTheCart":"add to the cart"
+
+
+
+
+
 }

@@ -9,13 +9,16 @@ class CustomTextFormField extends StatefulWidget {
   final String name, image;
   final TextEditingController? controller;
   final VoidCallback? onWidgetPressed;
-  final bool isCitySelection;
   final TextInputAction inputAction;
   final TextInputType? keyboardType;
   final Color? labelColor;
   final bool isPassword, isEnabled;
-  bool isSecure;
-  bool pinCodeWidgetExist;
+  bool isSecure,
+      pinCodeWidgetExist,
+      isCitySelection,
+      changeFillColor,
+      removeBorder;
+  Color? fillColor;
 
   CustomTextFormField(
       {Key? key,
@@ -30,7 +33,10 @@ class CustomTextFormField extends StatefulWidget {
       this.isPassword = false,
       this.isEnabled = true,
       this.isSecure = true,
-      this.isCitySelection = false})
+      this.changeFillColor = false,
+      this.isCitySelection = false,
+      this.fillColor,
+      this.removeBorder = false})
       : super(key: key);
 
   @override
@@ -55,9 +61,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               margin: EdgeInsets.symmetric(horizontal: 10.w),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: widget.changeFillColor ? widget.fillColor : Colors.white,
                 borderRadius: BorderRadius.circular(15.r),
-                border: Border.all(color: Colors.grey.shade300),
+                border: Border.all(
+                    color: widget.removeBorder
+                        ? Colors.white
+                        : Colors.grey.shade300),
               ),
               child: TextFormField(
                 cursorHeight: 20.h,

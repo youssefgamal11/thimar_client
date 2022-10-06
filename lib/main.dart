@@ -7,9 +7,9 @@ import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/unfocus.dart';
 import 'package:thimar_app/generated/codegen_loader.g.dart';
+import 'package:thimar_app/screens/home/view.dart';
 import 'core/bloc_observer.dart';
 import 'core/firebase_notification.dart';
-import 'screens/auth/login/view.dart';
 import 'core/Kiwi.dart';
 import 'package:flutter/services.dart';
 
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: const LoginScreen(),
+      home: Homepage(),
     );
   }
 }

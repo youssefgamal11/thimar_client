@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 
 const greenFontColor = Color(0xff4C8613);
 const greenButtonColor = Color(0xff4C8613);
+const whiteBackground = Color(0xffFFFFFF);
+const hearButtonBackgroundColor = Color(0xffE8EFE0);
+const selectedItemColor = Color(0xffE9F0E2);
+const unselectedItemColor = Color(0xffAED489);
+const searchBarColor = Color(0xffF5F7F3);
+const vegatableConatinerColor = Color(0xffEDF4E7);
+const fruitsContainerColor = Color(0xffFCF0D2);
+const spicesContainerColor = Color(0xffE9F8FC);
+const datesContainerColor = Color(0xffFCE8E2);
+const nutsContainerColor = Color(0xffE9EFF5);
+const steakContainerColor = Color(0xffF9E1DA);
+const priceColor = Color(0xffC7C7C7);
+const homeAddButton = Color(0xff61B80C);
+const discountPriceColor = Color(0xff5E922B);
+const discountTextColor = Color(0xffFFFFFF);
+
 MaterialColor buildMaterialColor(Color color) {
   List strengths = <double>[.05];
   Map<int, Color> swatch = {};

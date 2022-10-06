@@ -205,5 +205,19 @@
   "amountFinished": "تم نفاذ الكمية",
   "amountMustBeGreaterThanOne": "يجب ان تكون الكمية منتج واحد على الاقل",
   "amountFinishedNoMore": "لا يوجد المزيد",
-  "totalAfterDiscount": "الاجمالى بعد خصم المنتجات"
+  "totalAfterDiscount": "الاجمالى بعد خصم المنتجات",
+  "dliverTo": "التوصيل الى ",
+  "changePasswordSucced" : "تم تغيير الرقم السري بنجاح",
+  "changePasswordFailed" : "فشل تغيير كلمه السر ",
+  "vegtables":"الخضار",
+  "fruits":"الفواكه",  
+  "steak":"اللحوم",
+  "dates":"التمور",
+  "almond":"المكسرات",
+  "appName":"سلة ثمار",
+  "spices":"البهارات",
+  "addToTheCart":"اضف للسله"
+
+ 
+
 }
