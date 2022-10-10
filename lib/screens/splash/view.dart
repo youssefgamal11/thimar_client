@@ -22,12 +22,12 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     _leaveController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
+        duration: const Duration(milliseconds: 500), vsync: this);
 
     _logoController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 500));
     _curveController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 500));
 
     _leaveAnimation = Tween<Offset>(
             begin: Offset(0, -11.h), end: const Offset(0.0, 0))
@@ -39,16 +39,13 @@ class _SplashScreenState extends State<SplashScreen>
         .animate(
             CurvedAnimation(parent: _logoController!, curve: Curves.linear));
 
-    Future.delayed(
-        const Duration(
-          milliseconds: 2000,
-        ), () {
+    Future.delayed(const Duration(milliseconds: 2500), () {
       _logoController!.forward();
     });
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       _leaveController!.forward();
     });
-    Future.delayed(const Duration(milliseconds: 3000), () {
+    Future.delayed(const Duration(milliseconds: 3500), () {
       _curveController!.forward();
     });
     setRotation(-100);
@@ -79,33 +76,47 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+        body: Stack(
       children: [
-        SlideTransition(
-            position: _leaveAnimation!,
-            child: SvgPicture.asset(Assets.images.svgImages.treeLeave)),
-        SlideTransition(
-          position: _logoAnimation!,
-          child: Center(
-            child: Stack(children: [
-              Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(Assets.images.appLogo1.path)),
-              AnimatedBuilder(
-                animation: _curveAnimation!,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 100.w, top: 25.h),
-                  child: Align(
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(Assets.images.svgImages.path2)),
-                ),
-                builder: (context, child) => Transform.rotate(
-                    angle: _curveAnimation!.value, child: child),
-              ),
-            ]),
+        Container(
+          child: SvgPicture.asset(
+            Assets.images.svgImages.background,
+            fit: BoxFit.cover,
           ),
         ),
+        Align(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SlideTransition(
+                  position: _leaveAnimation!,
+                  child: SvgPicture.asset(Assets.images.svgImages.treeLeave)),
+              SlideTransition(
+                position: _logoAnimation!,
+                child: Center(
+                  child: Stack(children: [
+                    Align(
+                        alignment: Alignment.center,
+                        child: Image.asset(Assets.images.appLogo1.path)),
+                    AnimatedBuilder(
+                      animation: _curveAnimation!,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 100.w, top: 25.h),
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: SvgPicture.asset(
+                                Assets.images.svgImages.path2)),
+                      ),
+                      builder: (context, child) => Transform.rotate(
+                          angle: _curveAnimation!.value, child: child),
+                    ),
+                  ]),
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     ));
   }

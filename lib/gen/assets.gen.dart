@@ -478,6 +478,9 @@ class $AssetsImagesSvgImagesGen {
   AssetGenImage get appLogo =>
       const AssetGenImage('assets/images/svg_images/app_logo.png');
 
+  /// File path: assets/images/svg_images/background.svg
+  String get background => 'assets/images/svg_images/background.svg';
+
   /// File path: assets/images/svg_images/credit_card.svg
   String get creditCard => 'assets/images/svg_images/credit_card.svg';
 
@@ -541,6 +544,7 @@ class $AssetsImagesSvgImagesGen {
         add,
         almond,
         appLogo,
+        background,
         creditCard,
         curve,
         date,
