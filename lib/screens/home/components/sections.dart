@@ -1,11 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../core/styles/colors.dart';
-import '../../../gen/assets.gen.dart';
-import '../../../generated/locale_keys.g.dart';
 
+// ignore: must_be_immutable
 class SectionComponent extends StatelessWidget {
   SectionComponent(
       {Key? key,

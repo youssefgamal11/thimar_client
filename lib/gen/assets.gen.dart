@@ -38,6 +38,10 @@ class $AssetsImagesGen {
   AssetGenImage get appLogo =>
       const AssetGenImage('assets/images/app_logo.png');
 
+  /// File path: assets/images/app_logo1.png
+  AssetGenImage get appLogo1 =>
+      const AssetGenImage('assets/images/app_logo1.png');
+
   /// File path: assets/images/back.png
   AssetGenImage get back => const AssetGenImage('assets/images/back.png');
 
@@ -179,6 +183,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         addToCart,
         appLogo,
+        appLogo1,
         back,
         calling,
         camera,
@@ -460,6 +465,9 @@ class $AssetsImagesMyAccountGen {
 class $AssetsImagesSvgImagesGen {
   const $AssetsImagesSvgImagesGen();
 
+  /// File path: assets/images/svg_images/Path 2.svg
+  String get path2 => 'assets/images/svg_images/Path 2.svg';
+
   /// File path: assets/images/svg_images/add.svg
   String get add => 'assets/images/svg_images/add.svg';
 
@@ -472,6 +480,9 @@ class $AssetsImagesSvgImagesGen {
 
   /// File path: assets/images/svg_images/credit_card.svg
   String get creditCard => 'assets/images/svg_images/credit_card.svg';
+
+  /// File path: assets/images/svg_images/curve.svg
+  String get curve => 'assets/images/svg_images/curve.svg';
 
   /// File path: assets/images/svg_images/date.png
   AssetGenImage get date =>
@@ -515,6 +526,9 @@ class $AssetsImagesSvgImagesGen {
   AssetGenImage get time =>
       const AssetGenImage('assets/images/svg_images/time.png');
 
+  /// File path: assets/images/svg_images/tree_leave.svg
+  String get treeLeave => 'assets/images/svg_images/tree_leave.svg';
+
   /// File path: assets/images/svg_images/vegetable.svg
   String get vegetable => 'assets/images/svg_images/vegetable.svg';
 
@@ -523,10 +537,12 @@ class $AssetsImagesSvgImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        path2,
         add,
         almond,
         appLogo,
         creditCard,
+        curve,
         date,
         dates,
         filter,
@@ -540,6 +556,7 @@ class $AssetsImagesSvgImagesGen {
         spices,
         steak,
         time,
+        treeLeave,
         vegetable,
         wallet
       ];
