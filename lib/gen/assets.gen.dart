@@ -98,6 +98,9 @@ class $AssetsImagesGen {
   AssetGenImage get location =>
       const AssetGenImage('assets/images/location.png');
 
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
   /// File path: assets/images/message.png
   AssetGenImage get message => const AssetGenImage('assets/images/message.png');
 
@@ -200,6 +203,7 @@ class $AssetsImagesGen {
         home,
         joinUs,
         location,
+        logo,
         message,
         money,
         moneyLight,

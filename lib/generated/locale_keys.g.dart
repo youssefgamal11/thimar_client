@@ -222,4 +222,6 @@ abstract class LocaleKeys {
   static const appName = 'appName';
   static const spices = 'spices';
   static const addToTheCart = 'addToTheCart';
+  static const currentItems = 'currentItems';
+  static const finishedItems = 'finishedItems';
 }

@@ -219,7 +219,9 @@
   "dates":"dates",
   "almond":"almond",
   "spices": "spices",
-  "addToTheCart":"add to the cart"
+  "addToTheCart":"add to the cart",
+  "currentItems":"current",
+  "finishedItems":"finished"
 
 
 

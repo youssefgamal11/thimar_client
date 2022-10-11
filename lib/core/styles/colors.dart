@@ -17,6 +17,13 @@ const priceColor = Color(0xffC7C7C7);
 const homeAddButton = Color(0xff61B80C);
 const discountPriceColor = Color(0xff5E922B);
 const discountTextColor = Color(0xffFFFFFF);
+const tabbarBorderColor = Color(0xffF3F3F3);
+const tabbarTitleColor = Color(0xffA2A1A4);
+const myordersBackgroundColor = Color(0xffFDFDFD);
+const orderStatusColor = Color(0xffEDF5E6);
+const dateColor = Color(0xff9C9C9C);
+const dividerColor = Color(0xffE2EAF2);
+const appbarColor = Color(0xffFAFAFA);
 
 MaterialColor buildMaterialColor(Color color) {
   List strengths = <double>[.05];

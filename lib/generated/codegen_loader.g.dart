@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: prefer_single_quotes
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
 
 import 'dart:ui';
 
@@ -10,7 +10,6 @@ class CodegenLoader extends AssetLoader {
   const CodegenLoader();
 
   @override
-  // ignore: avoid_renaming_method_parameters
   Future<Map<String, dynamic>> load(String fullPath, Locale locale) {
     return Future.value(mapLocales[locale.toString()]);
   }
@@ -234,7 +233,9 @@ class CodegenLoader extends AssetLoader {
     "almond": "المكسرات",
     "appName": "سلة ثمار",
     "spices": "البهارات",
-    "addToTheCart": "اضف للسله"
+    "addToTheCart": "اضف للسله",
+    "currentItems": "الحاليه",
+    "finishedItems": "المنتهيه"
   };
   static const Map<String, dynamic> en = {
     "helloAgain": "Welcome Again",
@@ -459,7 +460,9 @@ class CodegenLoader extends AssetLoader {
     "dates": "dates",
     "almond": "almond",
     "spices": "spices",
-    "addToTheCart": "add to the cart"
+    "addToTheCart": "add to the cart",
+    "currentItems": "current",
+    "finishedItems": "finished"
   };
   static const Map<String, Map<String, dynamic>> mapLocales = {
     "ar": ar,

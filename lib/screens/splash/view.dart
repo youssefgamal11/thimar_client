@@ -78,11 +78,9 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
         body: Stack(
       children: [
-        Container(
-          child: SvgPicture.asset(
-            Assets.images.svgImages.background,
-            fit: BoxFit.cover,
-          ),
+        SvgPicture.asset(
+          Assets.images.svgImages.background,
+          fit: BoxFit.cover,
         ),
         Align(
           alignment: Alignment.center,
@@ -98,7 +96,12 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Stack(children: [
                     Align(
                         alignment: Alignment.center,
-                        child: Image.asset(Assets.images.appLogo1.path)),
+                        child: SizedBox(
+                            width: 140.w,
+                            height: 125.h,
+                            child: Image.asset(
+                              Assets.images.logo.path,
+                            ))),
                     AnimatedBuilder(
                       animation: _curveAnimation!,
                       child: Padding(
