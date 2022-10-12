@@ -81,6 +81,9 @@ class _MyordersScreenState extends State<MyordersScreen>
                   controller: tabController,
                   children: const [CurrentItems(), FinishedItems()],
                 ),
+              ),
+              SizedBox(
+                height: 35.h,
               )
             ],
           ),

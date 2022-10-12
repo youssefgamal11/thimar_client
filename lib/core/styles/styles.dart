@@ -6,7 +6,7 @@ import 'colors.dart';
 var authGreenTextStyle = TextStyle(
     color: greenFontColor,
     fontSize: 18.sp,
-    fontFamily: 'Tajawal',
+    fontFamily: 'Medium',
     fontWeight: FontWeight.w400);
 
 var authGreyTextStyle =

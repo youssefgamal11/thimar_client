@@ -337,6 +337,9 @@ class $AssetsImagesBottomNavGen {
   /// File path: assets/images/bottom_nav/home.svg
   String get home => 'assets/images/bottom_nav/home.svg';
 
+  /// File path: assets/images/bottom_nav/home1.svg
+  String get home1 => 'assets/images/bottom_nav/home1.svg';
+
   /// File path: assets/images/bottom_nav/my_account.svg
   String get myAccount => 'assets/images/bottom_nav/my_account.svg';
 
@@ -350,8 +353,16 @@ class $AssetsImagesBottomNavGen {
   String get search => 'assets/images/bottom_nav/search.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [cart, favoriates, home, myAccount, myOrders, notifications, search];
+  List<String> get values => [
+        cart,
+        favoriates,
+        home,
+        home1,
+        myAccount,
+        myOrders,
+        notifications,
+        search
+      ];
 }
 
 class $AssetsImagesEmptyGen {
@@ -504,6 +515,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/fruit.svg
   String get fruit => 'assets/images/svg_images/fruit.svg';
 
+  /// File path: assets/images/svg_images/home1.svg
+  String get home1 => 'assets/images/svg_images/home1.svg';
+
   /// File path: assets/images/svg_images/line.svg
   String get line => 'assets/images/svg_images/line.svg';
 
@@ -555,6 +569,7 @@ class $AssetsImagesSvgImagesGen {
         dates,
         filter,
         fruit,
+        home1,
         line,
         money,
         papers,

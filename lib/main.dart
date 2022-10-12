@@ -6,8 +6,10 @@ import 'package:thimar_app/core/cache_helper.dart';
 import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/unfocus.dart';
+import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/codegen_loader.g.dart';
 import 'package:thimar_app/screens/home/pages/myorders/view.dart';
+import 'package:thimar_app/screens/home/view.dart';
 import 'core/bloc_observer.dart';
 import 'core/firebase_notification.dart';
 import 'core/Kiwi.dart';
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       navigatorKey: navigatorKey,
       theme: ThemeData(
-          fontFamily: 'Tajawal',
+          fontFamily: 'Regular',
           primaryColor: greenFontColor,
           primarySwatch: buildMaterialColor(greenFontColor),
           progressIndicatorTheme:
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: const MyordersScreen(),
+      home: Homepage(),
     );
   }
 }

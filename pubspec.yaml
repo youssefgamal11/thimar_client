@@ -99,14 +99,26 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Tajawal
+    - family: Black
       fonts:
         - asset: assets/fonts/Tajawal-Black.ttf
+    - family: Bold
+      fonts:
         - asset: assets/fonts/Tajawal-Bold.ttf
+    - family: ExtraBold
+      fonts:
         - asset: assets/fonts/Tajawal-ExtraBold.ttf
+    - family: ExtraLight
+      fonts:
         - asset: assets/fonts/Tajawal-ExtraLight.ttf
+    - family: Light
+      fonts:
         - asset: assets/fonts/Tajawal-Light.ttf
+    - family: Medium
+      fonts:
         - asset: assets/fonts/Tajawal-Medium.ttf
+    - family: Regular
+      fonts:
         - asset: assets/fonts/Tajawal-Regular.ttf
 
   #   - family: Trajan Pro
