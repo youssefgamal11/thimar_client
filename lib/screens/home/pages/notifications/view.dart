@@ -19,7 +19,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
         appBar: CustomAppBar(
           title: LocaleKeys.notifications.tr(),
-          hight: 80,
+          hight: 90,
         ),
         body: Column(
           children: const [

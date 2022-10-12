@@ -26,21 +26,23 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: greenFontColor,
   ));
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(
+            EasyLocalization(
+              child: ScreenUtilInit(
+                designSize: const Size(360, 752),
+                builder: (context, child) => const MyApp(),
+              ),
+              supportedLocales: const [Locale('ar'), Locale('en')],
+              path: 'assets/translations',
+              startLocale: const Locale('ar'),
+              fallbackLocale: const Locale('en'),
+              saveLocale: true,
+              assetLoader: const CodegenLoader(),
+            ),
+          ));
 
-  runApp(
-    EasyLocalization(
-      child: ScreenUtilInit(
-        designSize: const Size(360, 752),
-        builder: (context, child) => const MyApp(),
-      ),
-      supportedLocales: const [Locale('ar'), Locale('en')],
-      path: 'assets/translations',
-      startLocale: const Locale('ar'),
-      fallbackLocale: const Locale('en'),
-      saveLocale: true,
-      assetLoader: const CodegenLoader(),
-    ),
-  );
   // ignore: unused_label
   blocObserver:
   MyBlocObserver();

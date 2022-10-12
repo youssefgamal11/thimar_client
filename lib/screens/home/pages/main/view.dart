@@ -190,7 +190,7 @@ class MainScreen extends StatelessWidget {
                   childAspectRatio: 1 / 1.5,
                 ),
                 itemBuilder: (context, index) {
-                  return const ProductItem();
+                  return ProductItem();
                 }),
           )
         ],
