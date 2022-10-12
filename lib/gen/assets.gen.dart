@@ -30,6 +30,13 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/about.svg
+  String get about => 'assets/images/about.svg';
+
+  /// File path: assets/images/account_image.jpeg
+  AssetGenImage get accountImage =>
+      const AssetGenImage('assets/images/account_image.jpeg');
+
   /// File path: assets/images/add_to_cart.png
   AssetGenImage get addToCart =>
       const AssetGenImage('assets/images/add_to_cart.png');
@@ -67,6 +74,9 @@ class $AssetsImagesGen {
   AssetGenImage get completeCartSuccess =>
       const AssetGenImage('assets/images/complete_cart_success.png');
 
+  /// File path: assets/images/conect.svg
+  String get conect => 'assets/images/conect.svg';
+
   /// File path: assets/images/date.png
   AssetGenImage get date => const AssetGenImage('assets/images/date.png');
 
@@ -94,9 +104,15 @@ class $AssetsImagesGen {
   /// File path: assets/images/join_us.png
   AssetGenImage get joinUs => const AssetGenImage('assets/images/join_us.png');
 
+  /// File path: assets/images/language.svg
+  String get language => 'assets/images/language.svg';
+
   /// File path: assets/images/location.png
-  AssetGenImage get location =>
+  AssetGenImage get locationPng =>
       const AssetGenImage('assets/images/location.png');
+
+  /// File path: assets/images/location.svg
+  String get locationSvg => 'assets/images/location.svg';
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
@@ -105,7 +121,10 @@ class $AssetsImagesGen {
   AssetGenImage get message => const AssetGenImage('assets/images/message.png');
 
   /// File path: assets/images/money.png
-  AssetGenImage get money => const AssetGenImage('assets/images/money.png');
+  AssetGenImage get moneyPng => const AssetGenImage('assets/images/money.png');
+
+  /// File path: assets/images/money.svg
+  String get moneySvg => 'assets/images/money.svg';
 
   /// File path: assets/images/moneyLight.png
   AssetGenImage get moneyLight =>
@@ -146,12 +165,18 @@ class $AssetsImagesGen {
   AssetGenImage get phoneGreen =>
       const AssetGenImage('assets/images/phone_green.png');
 
+  /// File path: assets/images/questions.svg
+  String get questions => 'assets/images/questions.svg';
+
   /// File path: assets/images/saudi_flag.jpg
   AssetGenImage get saudiFlag =>
       const AssetGenImage('assets/images/saudi_flag.jpg');
 
   /// File path: assets/images/search.png
   AssetGenImage get search => const AssetGenImage('assets/images/search.png');
+
+  /// File path: assets/images/security.svg
+  String get security => 'assets/images/security.svg';
 
   /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
@@ -161,7 +186,13 @@ class $AssetsImagesGen {
   AssetGenImage get splashMainBg =>
       const AssetGenImage('assets/images/splash_main_bg.jpg');
 
+  /// File path: assets/images/star.svg
+  String get star => 'assets/images/star.svg';
+
   $AssetsImagesSvgImagesGen get svgImages => const $AssetsImagesSvgImagesGen();
+
+  /// File path: assets/images/terms.svg
+  String get terms => 'assets/images/terms.svg';
 
   /// File path: assets/images/time.png
   AssetGenImage get time => const AssetGenImage('assets/images/time.png');
@@ -170,7 +201,10 @@ class $AssetsImagesGen {
   AssetGenImage get tomato => const AssetGenImage('assets/images/tomato.png');
 
   /// File path: assets/images/user.png
-  AssetGenImage get user => const AssetGenImage('assets/images/user.png');
+  AssetGenImage get userPng => const AssetGenImage('assets/images/user.png');
+
+  /// File path: assets/images/user.svg
+  String get userSvg => 'assets/images/user.svg';
 
   /// File path: assets/images/vegtables.png
   AssetGenImage get vegtables =>
@@ -182,8 +216,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/visa.png
   AssetGenImage get visa => const AssetGenImage('assets/images/visa.png');
 
+  /// File path: assets/images/wallet.svg
+  String get wallet => 'assets/images/wallet.svg';
+
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
+        about,
+        accountImage,
         addToCart,
         appLogo,
         appLogo1,
@@ -194,6 +233,7 @@ class $AssetsImagesGen {
         cart,
         cityGreen,
         completeCartSuccess,
+        conect,
         date,
         delete,
         drop,
@@ -202,10 +242,13 @@ class $AssetsImagesGen {
         filter,
         home,
         joinUs,
-        location,
+        language,
+        locationPng,
+        locationSvg,
         logo,
         message,
-        money,
+        moneyPng,
+        moneySvg,
         moneyLight,
         moneyTransaction,
         notification,
@@ -216,16 +259,22 @@ class $AssetsImagesGen {
         person,
         phone,
         phoneGreen,
+        questions,
         saudiFlag,
         search,
+        security,
         splashBg,
         splashMainBg,
+        star,
+        terms,
         time,
         tomato,
-        user,
+        userPng,
+        userSvg,
         vegtables,
         vip,
-        visa
+        visa,
+        wallet
       ];
 }
 
@@ -496,6 +545,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/background.svg
   String get background => 'assets/images/svg_images/background.svg';
 
+  /// File path: assets/images/svg_images/background1.svg
+  String get background1 => 'assets/images/svg_images/background1.svg';
+
   /// File path: assets/images/svg_images/credit_card.svg
   String get creditCard => 'assets/images/svg_images/credit_card.svg';
 
@@ -523,6 +575,14 @@ class $AssetsImagesSvgImagesGen {
 
   /// File path: assets/images/svg_images/money.svg
   String get money => 'assets/images/svg_images/money.svg';
+
+  /// File path: assets/images/svg_images/my_account_background.svg
+  String get myAccountBackground =>
+      'assets/images/svg_images/my_account_background.svg';
+
+  /// File path: assets/images/svg_images/myaccountbackground.svg
+  String get myaccountbackground =>
+      'assets/images/svg_images/myaccountbackground.svg';
 
   /// File path: assets/images/svg_images/papers.svg
   String get papers => 'assets/images/svg_images/papers.svg';
@@ -563,6 +623,7 @@ class $AssetsImagesSvgImagesGen {
         almond,
         appLogo,
         background,
+        background1,
         creditCard,
         curve,
         date,
@@ -572,6 +633,8 @@ class $AssetsImagesSvgImagesGen {
         home1,
         line,
         money,
+        myAccountBackground,
+        myaccountbackground,
         papers,
         rest,
         saudi,

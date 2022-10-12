@@ -10,6 +10,7 @@ import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/codegen_loader.g.dart';
 import 'package:thimar_app/screens/home/pages/myorders/view.dart';
 import 'package:thimar_app/screens/home/view.dart';
+import 'package:thimar_app/screens/splash/view.dart';
 import 'core/bloc_observer.dart';
 import 'core/firebase_notification.dart';
 import 'core/Kiwi.dart';

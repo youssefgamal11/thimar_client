@@ -79,8 +79,8 @@ class _SplashScreenState extends State<SplashScreen>
         body: Stack(
       children: [
         SvgPicture.asset(
-          Assets.images.svgImages.background,
-          fit: BoxFit.cover,
+          Assets.images.svgImages.background1,
+          fit: BoxFit.fill,
         ),
         Align(
           alignment: Alignment.center,

@@ -1,0 +1,20 @@
+<svg id="Group_17742" data-name="Group 17742" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="217" viewBox="0 0 375 217">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Rectangle_3501" data-name="Rectangle 3501" d="M40,0H335a40,40,0,0,1,40,40V217a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V40A40,40,0,0,1,40,0Z" transform="translate(375 217) rotate(180)" fill="#4c8613"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.257" y1="0.045" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_17623" data-name="Group 17623">
+    <path id="Rectangle_3499" data-name="Rectangle 3499" d="M40,0H335a40,40,0,0,1,40,40V217a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V40A40,40,0,0,1,40,0Z" transform="translate(375 217) rotate(180)" fill="#4c8613"/>
+    <g id="Mask_Group_11" data-name="Mask Group 11" clip-path="url(#clip-path)">
+      <ellipse id="Ellipse_85" data-name="Ellipse 85" cx="85.5" cy="80" rx="85.5" ry="80" transform="translate(294 -22)" opacity="0.09" fill="url(#linear-gradient)"/>
+      <ellipse id="Ellipse_87" data-name="Ellipse 87" cx="85.5" cy="80" rx="85.5" ry="80" transform="translate(234 101)" opacity="0.09" fill="url(#linear-gradient)"/>
+      <ellipse id="Ellipse_90" data-name="Ellipse 90" cx="85.5" cy="80" rx="85.5" ry="80" transform="translate(-44 -22)" opacity="0.03" fill="url(#linear-gradient)"/>
+      <ellipse id="Ellipse_91" data-name="Ellipse 91" cx="85.5" cy="80" rx="85.5" ry="80" transform="translate(-77 101)" opacity="0.09" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>
