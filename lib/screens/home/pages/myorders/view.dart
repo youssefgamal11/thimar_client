@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 import 'package:thimar_app/screens/home/pages/myorders/components/current_items.dart';
 import 'package:thimar_app/screens/home/pages/myorders/components/finished_items.dart';
@@ -26,17 +27,11 @@ class _MyordersScreenState extends State<MyordersScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: appbarColor,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          LocaleKeys.my_orders.tr(),
-          style: TextStyle(color: greenFontColor, fontSize: 20.sp),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.my_orders.tr(),
+        hight: 50.h,
       ),
-      body: SingleChildScrollView(
-          child: SizedBox(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.h),
@@ -82,13 +77,10 @@ class _MyordersScreenState extends State<MyordersScreen>
                   children: const [CurrentItems(), FinishedItems()],
                 ),
               ),
-              SizedBox(
-                height: 35.h,
-              )
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

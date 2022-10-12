@@ -24,6 +24,7 @@ const orderStatusColor = Color(0xffEDF5E6);
 const dateColor = Color(0xff9C9C9C);
 const dividerColor = Color(0xffE2EAF2);
 const appbarColor = Color(0xffFAFAFA);
+const mintgreenColor = Color(0xffF1F6ED);
 
 MaterialColor buildMaterialColor(Color color) {
   List strengths = <double>[.05];
