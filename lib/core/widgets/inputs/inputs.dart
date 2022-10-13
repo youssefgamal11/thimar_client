@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/gen/fonts.gen.dart';
 
 import '../pin_code.dart';
 
 // ignore: must_be_immutable
 class CustomTextFormField extends StatefulWidget {
-  final String name, image;
+  final String name;
+  late String image;
   final TextEditingController? controller;
   final VoidCallback? onWidgetPressed;
   final TextInputAction inputAction;
   final TextInputType? keyboardType;
   final Color? labelColor;
-  final bool isPassword, isEnabled;
+  final bool isPassword, isEnabled, hasPrefixIcon;
+  final Widget? widget;
   bool isSecure,
       pinCodeWidgetExist,
       isCitySelection,
@@ -24,6 +27,7 @@ class CustomTextFormField extends StatefulWidget {
       {Key? key,
       required this.name,
       required this.image,
+      this.widget,
       this.controller,
       this.keyboardType,
       this.inputAction = TextInputAction.next,
@@ -36,7 +40,8 @@ class CustomTextFormField extends StatefulWidget {
       this.changeFillColor = false,
       this.isCitySelection = false,
       this.fillColor,
-      this.removeBorder = false})
+      this.removeBorder = false,
+      this.hasPrefixIcon = true})
       : super(key: key);
 
   @override
@@ -87,9 +92,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                     labelStyle: TextStyle(
                       color: widget.labelColor ?? const Color(0xffB1B1B1),
                       fontSize: 15.sp,
-                      fontFamily: 'Tajawel',
+                      fontFamily: FontFamily.regular,
                     ),
-                    prefixIcon: Image.asset(widget.image),
+                    prefixIcon:
+                        widget.hasPrefixIcon ? Image.asset(widget.image) : null,
                     suffixIcon: widget.isPassword
                         ? GestureDetector(
                             onTap: () {
@@ -99,7 +105,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                             child: Icon(widget.isSecure
                                 ? Icons.visibility_off
                                 : Icons.visibility))
-                        : null),
+                        : widget.widget),
               ),
             ),
           ),

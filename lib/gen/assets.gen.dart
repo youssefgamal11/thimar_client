@@ -529,6 +529,9 @@ class $AssetsImagesMyAccountGen {
 class $AssetsImagesSvgImagesGen {
   const $AssetsImagesSvgImagesGen();
 
+  /// File path: assets/images/svg_images/Arrow - Right 2.svg
+  String get arrowRight2 => 'assets/images/svg_images/Arrow - Right 2.svg';
+
   /// File path: assets/images/svg_images/Path 2.svg
   String get path2 => 'assets/images/svg_images/Path 2.svg';
 
@@ -573,6 +576,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/line.svg
   String get line => 'assets/images/svg_images/line.svg';
 
+  /// File path: assets/images/svg_images/minus.svg
+  String get minus => 'assets/images/svg_images/minus.svg';
+
   /// File path: assets/images/svg_images/money.svg
   String get money => 'assets/images/svg_images/money.svg';
 
@@ -607,6 +613,9 @@ class $AssetsImagesSvgImagesGen {
   AssetGenImage get time =>
       const AssetGenImage('assets/images/svg_images/time.png');
 
+  /// File path: assets/images/svg_images/trash.svg
+  String get trash => 'assets/images/svg_images/trash.svg';
+
   /// File path: assets/images/svg_images/tree_leave.svg
   String get treeLeave => 'assets/images/svg_images/tree_leave.svg';
 
@@ -618,6 +627,7 @@ class $AssetsImagesSvgImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        arrowRight2,
         path2,
         add,
         almond,
@@ -632,6 +642,7 @@ class $AssetsImagesSvgImagesGen {
         fruit,
         home1,
         line,
+        minus,
         money,
         myAccountBackground,
         myaccountbackground,
@@ -642,6 +653,7 @@ class $AssetsImagesSvgImagesGen {
         spices,
         steak,
         time,
+        trash,
         treeLeave,
         vegetable,
         wallet

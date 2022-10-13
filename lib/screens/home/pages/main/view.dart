@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/naviagtion.dart';
+import 'package:thimar_app/screens/home/pages/cart/view.dart';
 
 import '../../../../core/styles/colors.dart';
 import '../../../../core/widgets/inputs/inputs.dart';
@@ -71,7 +73,9 @@ class MainScreen extends StatelessWidget {
                 height: 37.h,
                 width: 32.w,
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateTo(leaveHistory: true, page: CartScreen());
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: hearButtonBackgroundColor,
                         shape: RoundedRectangleBorder(

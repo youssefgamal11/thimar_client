@@ -221,7 +221,11 @@
   "spices": "spices",
   "addToTheCart":"add to the cart",
   "currentItems":"current",
-  "finishedItems":"finished"
+  "finishedItems":"finished",
+  "apply":"apply",
+  "discount":"discount"
+
+
 
 
 

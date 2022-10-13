@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/gen/fonts.gen.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../generated/locale_keys.g.dart';
@@ -66,7 +67,7 @@ class ProductItem extends StatelessWidget {
               child: const Text(
                 'طماطم',
                 style: TextStyle(
-                    color: greenFontColor, fontWeight: FontWeight.w500),
+                    color: greenFontColor, fontFamily: FontFamily.bold),
               ),
             ),
             Padding(
@@ -85,7 +86,7 @@ class ProductItem extends StatelessWidget {
                   const Text(
                     '45 ر.س',
                     style: TextStyle(
-                        color: greenFontColor, fontWeight: FontWeight.w500),
+                        color: greenFontColor, fontFamily: FontFamily.bold),
                   ),
                   SizedBox(
                     width: 5.w,
