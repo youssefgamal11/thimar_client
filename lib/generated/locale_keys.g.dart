@@ -223,5 +223,12 @@ abstract class  LocaleKeys {
   static const finishedItems = 'finishedItems';
   static const apply = 'apply';
   static const discount = 'discount';
+  static const dliverNow = 'dliverNow';
+  static const moneyInformation = 'moneyInformation';
+  static const yourOwnMoney = 'yourOwnMoney';
+  static const idInformation = 'idInformation';
+  static const idNumber = 'idNumber';
+  static const expireDate = 'expireDate';
+  static const serialNumber = 'serialNumber';
 
 }

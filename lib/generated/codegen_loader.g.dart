@@ -236,7 +236,14 @@ class CodegenLoader extends AssetLoader{
   "currentItems": "الحاليه",
   "finishedItems": "المنتهيه",
   "apply": "تطبيق",
-  "discount": "الخصم"
+  "discount": "الخصم",
+  "dliverNow": "شحن الان",
+  "moneyInformation": "معلومات المبلغ",
+  "yourOwnMoney": "المبلغ الخاص بك",
+  "idInformation": "معلومات البطاقه",
+  "idNumber": "رقم البطاقه الأتمانيه",
+  "expireDate": "تاريخ الانتهاء",
+  "serialNumber": "الرقم المتسلسل"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -460,7 +467,14 @@ static const Map<String,dynamic> en = {
   "currentItems": "current",
   "finishedItems": "finished",
   "apply": "apply",
-  "discount": "discount"
+  "discount": "discount",
+  "dliverNow": "deliver now",
+  "moneyInformation": "money information",
+  "yourOwnMoney": "your own money",
+  "idInformation": "id information",
+  "idNumber": "id number",
+  "expireDate": "expire date",
+  "serialNumber": "serial number"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

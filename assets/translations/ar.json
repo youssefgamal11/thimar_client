@@ -220,7 +220,15 @@
   "currentItems":"الحاليه",
   "finishedItems":"المنتهيه",
   "apply":"تطبيق",
-  "discount":"الخصم"
+  "discount":"الخصم",
+  "dliverNow":"شحن الان",
+  "moneyInformation" :"معلومات المبلغ",
+  "yourOwnMoney" :"المبلغ الخاص بك",
+  "idInformation" :"معلومات البطاقه",
+  "idNumber" :"رقم البطاقه الأتمانيه",
+  "expireDate" :"تاريخ الانتهاء" ,
+  "serialNumber" : "الرقم المتسلسل"
+
 
 
 

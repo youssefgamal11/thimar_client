@@ -223,7 +223,15 @@
   "currentItems":"current",
   "finishedItems":"finished",
   "apply":"apply",
-  "discount":"discount"
+  "discount":"discount",
+  "dliverNow":"deliver now",
+  "moneyInformation" :"money information",
+  "yourOwnMoney" :"your own money",
+  "idInformation" :"id information",
+  "idNumber" :"id number",
+  "expireDate" :"expire date" ,
+  "serialNumber" : "serial number"
+
 
 
 

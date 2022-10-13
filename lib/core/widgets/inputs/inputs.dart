@@ -85,6 +85,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 obscureText: widget.isSecure,
                 style: const TextStyle(color: greenFontColor),
                 decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                    isDense: true,
                     labelText: widget.name,
                     hintMaxLines: 1,
                     border: InputBorder.none,
