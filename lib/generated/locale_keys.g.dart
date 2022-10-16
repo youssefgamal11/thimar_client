@@ -230,5 +230,6 @@ abstract class  LocaleKeys {
   static const idNumber = 'idNumber';
   static const expireDate = 'expireDate';
   static const serialNumber = 'serialNumber';
+  static const rate = 'rate';
 
 }

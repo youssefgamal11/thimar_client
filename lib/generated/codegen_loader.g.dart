@@ -243,7 +243,8 @@ class CodegenLoader extends AssetLoader{
   "idInformation": "معلومات البطاقه",
   "idNumber": "رقم البطاقه الأتمانيه",
   "expireDate": "تاريخ الانتهاء",
-  "serialNumber": "الرقم المتسلسل"
+  "serialNumber": "الرقم المتسلسل",
+  "rate": "تقييم"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -474,7 +475,8 @@ static const Map<String,dynamic> en = {
   "idInformation": "id information",
   "idNumber": "id number",
   "expireDate": "expire date",
-  "serialNumber": "serial number"
+  "serialNumber": "serial number",
+  "rate": "rate"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

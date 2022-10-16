@@ -14,22 +14,27 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputAction inputAction;
   final TextInputType? keyboardType;
   final Color? labelColor;
-  final bool isPassword, isEnabled, hasPrefixIcon;
+  final bool isPassword, isEnabled, hasPrefixIcon, changeContainerHeight;
   final Widget? widget;
   bool isSecure,
       pinCodeWidgetExist,
       isCitySelection,
       changeFillColor,
-      removeBorder;
+      removeBorder,
+      isRateItem;
   Color? fillColor;
+  double? containerHight;
 
   CustomTextFormField(
       {Key? key,
       required this.name,
       required this.image,
+      this.changeContainerHeight = false,
       this.widget,
+      this.containerHight,
       this.controller,
       this.keyboardType,
+      this.isRateItem = false,
       this.inputAction = TextInputAction.next,
       this.onWidgetPressed,
       this.labelColor,
@@ -62,7 +67,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               }
             },
             child: Container(
-              height: 60.h,
+              height:
+                  widget.changeContainerHeight ? widget.containerHight : 60.h,
               margin: EdgeInsets.symmetric(horizontal: 10.w),
               alignment: Alignment.center,
               decoration: BoxDecoration(
@@ -73,41 +79,46 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                         ? Colors.white
                         : Colors.grey.shade300),
               ),
-              child: TextFormField(
-                cursorHeight: 20.h,
-                onTap: () {},
-                cursorColor: greenFontColor,
-                keyboardType: widget.keyboardType,
-                textDirection: TextDirection.rtl,
-                controller: widget.controller,
-                enabled: widget.isEnabled,
-                textInputAction: widget.inputAction,
-                obscureText: widget.isSecure,
-                style: const TextStyle(color: greenFontColor),
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                    isDense: true,
-                    labelText: widget.name,
-                    hintMaxLines: 1,
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    labelStyle: TextStyle(
-                      color: widget.labelColor ?? const Color(0xffB1B1B1),
-                      fontSize: 15.sp,
-                      fontFamily: FontFamily.regular,
-                    ),
-                    prefixIcon:
-                        widget.hasPrefixIcon ? Image.asset(widget.image) : null,
-                    suffixIcon: widget.isPassword
-                        ? GestureDetector(
-                            onTap: () {
-                              widget.isSecure = !widget.isSecure;
-                              setState(() {});
-                            },
-                            child: Icon(widget.isSecure
-                                ? Icons.visibility_off
-                                : Icons.visibility))
-                        : widget.widget),
+              child: Padding(
+                padding:
+                    EdgeInsets.only(bottom: widget.isRateItem ? 35.h : 0.h),
+                child: TextFormField(
+                  cursorHeight: 20.h,
+                  onTap: () {},
+                  cursorColor: greenFontColor,
+                  keyboardType: widget.keyboardType,
+                  textDirection: TextDirection.rtl,
+                  controller: widget.controller,
+                  enabled: widget.isEnabled,
+                  textInputAction: widget.inputAction,
+                  obscureText: widget.isSecure,
+                  style: const TextStyle(color: greenFontColor),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                      isDense: true,
+                      labelText: widget.name,
+                      hintMaxLines: 1,
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      labelStyle: TextStyle(
+                        color: widget.labelColor ?? const Color(0xffB1B1B1),
+                        fontSize: 15.sp,
+                        fontFamily: FontFamily.regular,
+                      ),
+                      prefixIcon: widget.hasPrefixIcon
+                          ? Image.asset(widget.image)
+                          : null,
+                      suffixIcon: widget.isPassword
+                          ? GestureDetector(
+                              onTap: () {
+                                widget.isSecure = !widget.isSecure;
+                                setState(() {});
+                              },
+                              child: Icon(widget.isSecure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility))
+                          : widget.widget),
+                ),
               ),
             ),
           ),

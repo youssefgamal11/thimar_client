@@ -227,7 +227,8 @@
   "idInformation" :"معلومات البطاقه",
   "idNumber" :"رقم البطاقه الأتمانيه",
   "expireDate" :"تاريخ الانتهاء" ,
-  "serialNumber" : "الرقم المتسلسل"
+  "serialNumber" : "الرقم المتسلسل",
+  "rate" :"تقييم"
 
 
 

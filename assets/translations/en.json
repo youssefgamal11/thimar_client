@@ -230,7 +230,9 @@
   "idInformation" :"id information",
   "idNumber" :"id number",
   "expireDate" :"expire date" ,
-  "serialNumber" : "serial number"
+  "serialNumber" : "serial number",
+  "rate" : "rate"
+
 
 
 
