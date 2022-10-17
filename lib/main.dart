@@ -17,6 +17,7 @@ import 'package:thimar_app/screens/home/pages/personal_inforamtions/view.dart';
 import 'package:thimar_app/screens/home/pages/privacy_policy/view.dart';
 import 'package:thimar_app/screens/home/pages/product_details/view.dart';
 import 'package:thimar_app/screens/home/pages/rate/view.dart';
+import 'package:thimar_app/screens/home/pages/suggestions_and_complaints/view.dart';
 import 'package:thimar_app/screens/home/view.dart';
 import 'package:thimar_app/screens/splash/view.dart';
 import 'core/bloc_observer.dart';
@@ -81,7 +82,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: PrivacyPolicyScreen(),
+      home: SuggestionsScreen(),
     );
   }
 }
