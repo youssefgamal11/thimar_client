@@ -25,6 +25,8 @@ import 'core/firebase_notification.dart';
 import 'core/Kiwi.dart';
 import 'package:flutter/services.dart';
 
+import 'screens/home/pages/address/view.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -82,7 +84,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: SuggestionsScreen(),
+      home: AddressScreen(),
     );
   }
 }

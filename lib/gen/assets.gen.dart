@@ -572,6 +572,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/dates.svg
   String get dates => 'assets/images/svg_images/dates.svg';
 
+  /// File path: assets/images/svg_images/edit.svg
+  String get edit => 'assets/images/svg_images/edit.svg';
+
   /// File path: assets/images/svg_images/favourite.svg
   String get favourite => 'assets/images/svg_images/favourite.svg';
 
@@ -656,6 +659,7 @@ class $AssetsImagesSvgImagesGen {
         datePng,
         dateSvg,
         dates,
+        edit,
         favourite,
         filter,
         fruit,
