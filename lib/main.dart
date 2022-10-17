@@ -8,6 +8,7 @@ import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/unfocus.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/codegen_loader.g.dart';
+import 'package:thimar_app/screens/home/pages/about_app/view.dart';
 import 'package:thimar_app/screens/home/pages/cart/view.dart';
 import 'package:thimar_app/screens/home/pages/complete_order/view.dart';
 import 'package:thimar_app/screens/home/pages/deliver_now/view.dart';
@@ -79,7 +80,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: PersonalInformaionScreen(),
+      home: AboutAppScreen(),
     );
   }
 }
