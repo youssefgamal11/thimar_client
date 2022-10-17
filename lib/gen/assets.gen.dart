@@ -117,6 +117,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/mastercard.png
+  AssetGenImage get mastercard =>
+      const AssetGenImage('assets/images/mastercard.png');
+
   /// File path: assets/images/message.png
   AssetGenImage get message => const AssetGenImage('assets/images/message.png');
 
@@ -246,6 +250,7 @@ class $AssetsImagesGen {
         locationPng,
         locationSvg,
         logo,
+        mastercard,
         message,
         moneyPng,
         moneySvg,
@@ -558,8 +563,11 @@ class $AssetsImagesSvgImagesGen {
   String get curve => 'assets/images/svg_images/curve.svg';
 
   /// File path: assets/images/svg_images/date.png
-  AssetGenImage get date =>
+  AssetGenImage get datePng =>
       const AssetGenImage('assets/images/svg_images/date.png');
+
+  /// File path: assets/images/svg_images/date.svg
+  String get dateSvg => 'assets/images/svg_images/date.svg';
 
   /// File path: assets/images/svg_images/dates.svg
   String get dates => 'assets/images/svg_images/dates.svg';
@@ -616,8 +624,11 @@ class $AssetsImagesSvgImagesGen {
   String get steak => 'assets/images/svg_images/steak.svg';
 
   /// File path: assets/images/svg_images/time.png
-  AssetGenImage get time =>
+  AssetGenImage get timePng =>
       const AssetGenImage('assets/images/svg_images/time.png');
+
+  /// File path: assets/images/svg_images/time.svg
+  String get timeSvg => 'assets/images/svg_images/time.svg';
 
   /// File path: assets/images/svg_images/trash.svg
   String get trash => 'assets/images/svg_images/trash.svg';
@@ -642,7 +653,8 @@ class $AssetsImagesSvgImagesGen {
         background1,
         creditCard,
         curve,
-        date,
+        datePng,
+        dateSvg,
         dates,
         favourite,
         filter,
@@ -660,7 +672,8 @@ class $AssetsImagesSvgImagesGen {
         shopcart,
         spices,
         steak,
-        time,
+        timePng,
+        timeSvg,
         trash,
         treeLeave,
         vegetable,

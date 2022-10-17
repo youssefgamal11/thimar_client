@@ -7,7 +7,7 @@ import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-import 'package:thimar_app/screens/home/pages/rate/items.dart';
+import 'package:thimar_app/screens/home/pages/rate/components/items.dart';
 import 'package:thimar_app/screens/home/view.dart';
 
 import '../cart/components/cart_items.dart';

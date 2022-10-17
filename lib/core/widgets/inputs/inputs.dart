@@ -21,7 +21,7 @@ class CustomTextFormField extends StatefulWidget {
       isCitySelection,
       changeFillColor,
       removeBorder,
-      isRateItem;
+      writeMuch;
   Color? fillColor;
   double? containerHight;
 
@@ -34,7 +34,7 @@ class CustomTextFormField extends StatefulWidget {
       this.containerHight,
       this.controller,
       this.keyboardType,
-      this.isRateItem = false,
+      this.writeMuch = false,
       this.inputAction = TextInputAction.next,
       this.onWidgetPressed,
       this.labelColor,
@@ -80,8 +80,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                         : Colors.grey.shade300),
               ),
               child: Padding(
-                padding:
-                    EdgeInsets.only(bottom: widget.isRateItem ? 35.h : 0.h),
+                padding: EdgeInsets.only(bottom: widget.writeMuch ? 35.h : 0.h),
                 child: TextFormField(
                   cursorHeight: 20.h,
                   onTap: () {},

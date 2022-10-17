@@ -228,7 +228,17 @@
   "idNumber" :"رقم البطاقه الأتمانيه",
   "expireDate" :"تاريخ الانتهاء" ,
   "serialNumber" : "الرقم المتسلسل",
-  "rate" :"تقييم"
+  "rate" :"تقييم",
+  "chooseDliveryLocation" :"اختر عنوان التوصيل",
+  "detectDeliveryTime" :"تحديد وقت التوصيل",
+  "chooseDate" :"اختار اليوم والتاريخ",
+  "notes" :"ملاحظات وتعليمات",
+  "choosePaymentMethod" :"اختر طريقة الدفع",
+  "orderSummary" :"ملخص الطلب" ,
+  "writeYourCommentHere" :"اكتب تعليقك هنا"
+
+
+
 
 
 

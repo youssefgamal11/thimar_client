@@ -231,5 +231,12 @@ abstract class  LocaleKeys {
   static const expireDate = 'expireDate';
   static const serialNumber = 'serialNumber';
   static const rate = 'rate';
+  static const chooseDliveryLocation = 'chooseDliveryLocation';
+  static const detectDeliveryTime = 'detectDeliveryTime';
+  static const chooseDate = 'chooseDate';
+  static const notes = 'notes';
+  static const choosePaymentMethod = 'choosePaymentMethod';
+  static const orderSummary = 'orderSummary';
+  static const writeYourCommentHere = 'writeYourCommentHere';
 
 }

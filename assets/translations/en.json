@@ -231,7 +231,16 @@
   "idNumber" :"id number",
   "expireDate" :"expire date" ,
   "serialNumber" : "serial number",
-  "rate" : "rate"
+  "rate" : "rate",
+  "chooseDliveryLocation" :"choose delivery location",
+  "detectDeliveryTime" :"detect delivery time",
+  "chooseDate" :"choose day and date",
+  "notes" :"notes and instructions",
+  "choosePaymentMethod" :"choose payment method",
+  "orderSummary" :"order summary",
+  "writeYourCommentHere" :"write your comment here"
+
+
 
 
 

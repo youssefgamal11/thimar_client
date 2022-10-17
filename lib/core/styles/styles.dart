@@ -12,3 +12,5 @@ var authGreenTextStyle = TextStyle(
 
 var authGreyTextStyle =
     TextStyle(color: Colors.grey, fontFamily: FontFamily.bold, fontSize: 15.sp);
+var mainTextStyle = TextStyle(
+    fontSize: 17.sp, fontFamily: FontFamily.bold, color: greenFontColor);

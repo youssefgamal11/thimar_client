@@ -244,7 +244,14 @@ class CodegenLoader extends AssetLoader{
   "idNumber": "رقم البطاقه الأتمانيه",
   "expireDate": "تاريخ الانتهاء",
   "serialNumber": "الرقم المتسلسل",
-  "rate": "تقييم"
+  "rate": "تقييم",
+  "chooseDliveryLocation": "اختر عنوان التوصيل",
+  "detectDeliveryTime": "تحديد وقت التوصيل",
+  "chooseDate": "اختار اليوم والتاريخ",
+  "notes": "ملاحظات وتعليمات",
+  "choosePaymentMethod": "اختر طريقة الدفع",
+  "orderSummary": "ملخص الطلب",
+  "writeYourCommentHere": "اكتب تعليقك هنا"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -476,7 +483,14 @@ static const Map<String,dynamic> en = {
   "idNumber": "id number",
   "expireDate": "expire date",
   "serialNumber": "serial number",
-  "rate": "rate"
+  "rate": "rate",
+  "chooseDliveryLocation": "choose delivery location",
+  "detectDeliveryTime": "detect delivery time",
+  "chooseDate": "choose day and date",
+  "notes": "notes and instructions",
+  "choosePaymentMethod": "choose payment method",
+  "orderSummary": "order summary",
+  "writeYourCommentHere": "write your comment here"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

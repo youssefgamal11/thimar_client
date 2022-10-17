@@ -6,8 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-import '../../../../core/styles/colors.dart';
-import '../../../../gen/assets.gen.dart';
+import '../../../../../core/styles/colors.dart';
+import '../../../../../gen/assets.gen.dart';
 
 class RateItem extends StatelessWidget {
   RateItem({Key? key, this.image, this.productName, this.productPrice})
@@ -117,7 +117,7 @@ class RateItem extends StatelessWidget {
               hasPrefixIcon: false,
               changeContainerHeight: true,
               containerHight: 89.h,
-              isRateItem: true,
+              writeMuch: true,
               isPassword: false,
             )
           ],

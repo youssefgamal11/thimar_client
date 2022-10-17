@@ -123,74 +123,71 @@ class DiscountConainter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: Center(
-        child: Container(
-          width: 343.w,
-          height: 111.h,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r), color: mintgreenColor),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0.h),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        LocaleKeys.totalProducts.tr(),
-                        style: textStyle,
-                      ),
-                      Text(
-                        '${total} ر.س',
-                        style: textStyle,
-                      )
-                    ],
-                  ),
+    return Center(
+      child: Container(
+        width: 343.w,
+        height: 111.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.r), color: mintgreenColor),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.0.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      LocaleKeys.totalProducts.tr(),
+                      style: textStyle,
+                    ),
+                    Text(
+                      '${total} ر.س',
+                      style: textStyle,
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        LocaleKeys.discount.tr(),
-                        style: textStyle,
-                      ),
-                      Text(
-                        '$discount ر.س',
-                        style: textStyle,
-                      )
-                    ],
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      LocaleKeys.discount.tr(),
+                      style: textStyle,
+                    ),
+                    Text(
+                      '$discount ر.س',
+                      style: textStyle,
+                    )
+                  ],
                 ),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: dividerColor,
+              ),
+              Container(
+                height: 1,
+                width: double.infinity,
+                color: dividerColor,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      LocaleKeys.total.tr(),
+                      style: textStyle,
+                    ),
+                    Text(
+                      '$totalAfterDiscount ر.س',
+                      style: textStyle,
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        LocaleKeys.total.tr(),
-                        style: textStyle,
-                      ),
-                      Text(
-                        '$totalAfterDiscount ر.س',
-                        style: textStyle,
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),
