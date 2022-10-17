@@ -564,6 +564,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/dates.svg
   String get dates => 'assets/images/svg_images/dates.svg';
 
+  /// File path: assets/images/svg_images/favourite.svg
+  String get favourite => 'assets/images/svg_images/favourite.svg';
+
   /// File path: assets/images/svg_images/filter.svg
   String get filter => 'assets/images/svg_images/filter.svg';
 
@@ -603,6 +606,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/search.svg
   String get search => 'assets/images/svg_images/search.svg';
 
+  /// File path: assets/images/svg_images/shopcart.svg
+  String get shopcart => 'assets/images/svg_images/shopcart.svg';
+
   /// File path: assets/images/svg_images/spices.svg
   String get spices => 'assets/images/svg_images/spices.svg';
 
@@ -638,6 +644,7 @@ class $AssetsImagesSvgImagesGen {
         curve,
         date,
         dates,
+        favourite,
         filter,
         fruit,
         home1,
@@ -650,6 +657,7 @@ class $AssetsImagesSvgImagesGen {
         rest,
         saudi,
         search,
+        shopcart,
         spices,
         steak,
         time,

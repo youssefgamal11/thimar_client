@@ -16,114 +16,111 @@ class RateItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 5.h),
-        child: Container(
-          width: 342.w,
-          height: 225.h,
-          decoration: BoxDecoration(
-              color: whiteBackground,
-              borderRadius: BorderRadius.circular(10.r)),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10.h),
-                      child: Container(
-                          width: 75.w,
-                          height: 64.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          child: Image.asset(
-                            image!,
-                          )),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5.h),
+      child: Container(
+        width: 342.w,
+        height: 225.h,
+        decoration: BoxDecoration(
+            color: whiteBackground, borderRadius: BorderRadius.circular(10.r)),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10.h),
+                    child: Container(
+                        width: 75.w,
+                        height: 64.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.r),
+                        ),
+                        child: Image.asset(
+                          image!,
+                        )),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          productName!,
+                          style: TextStyle(
+                              fontFamily: FontFamily.bold,
+                              color: greenFontColor,
+                              fontSize: 15.sp),
+                        ),
+                        SizedBox(height: 5.h),
+                        Text(
+                          'السعر / كجم',
+                          style: TextStyle(
+                              fontFamily: FontFamily.light,
+                              color: greenFontColor,
+                              fontSize: 12.sp),
+                        ),
+                        SizedBox(height: 5.h),
+                        Row(
+                          children: [
+                            Text(
+                              '${productPrice!} ر.س',
+                              style: TextStyle(
+                                  fontFamily: FontFamily.bold,
+                                  color: greenFontColor,
+                                  fontSize: 13.sp),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              '56 ر.س',
+                              style: TextStyle(
+                                  fontFamily: FontFamily.medium,
+                                  color: greenFontColor,
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: 13.sp),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.h, horizontal: 10.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            productName!,
-                            style: TextStyle(
-                                fontFamily: FontFamily.bold,
-                                color: greenFontColor,
-                                fontSize: 15.sp),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text(
-                            'السعر / كجم',
-                            style: TextStyle(
-                                fontFamily: FontFamily.light,
-                                color: greenFontColor,
-                                fontSize: 12.sp),
-                          ),
-                          SizedBox(height: 5.h),
-                          Row(
-                            children: [
-                              Text(
-                                '${productPrice!} ر.س',
-                                style: TextStyle(
-                                    fontFamily: FontFamily.bold,
-                                    color: greenFontColor,
-                                    fontSize: 13.sp),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                '56 ر.س',
-                                style: TextStyle(
-                                    fontFamily: FontFamily.medium,
-                                    color: greenFontColor,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: 13.sp),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              RatingBar.builder(
-                initialRating: 3,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemSize: 20.h,
-                onRatingUpdate: (rating) {
-                  print(rating);
-                },
-                itemBuilder: (context, _) {
-                  return const Icon(
-                    Icons.star,
-                    color: ratebarColor,
-                  );
-                },
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              CustomTextFormField(
-                name: LocaleKeys.commentOnProduct.tr(),
-                image: '',
-                hasPrefixIcon: false,
-                changeContainerHeight: true,
-                containerHight: 89.h,
-                isRateItem: true,
-                isPassword: false,
-              )
-            ],
-          ),
+            ),
+            RatingBar.builder(
+              initialRating: 3,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemSize: 20.h,
+              onRatingUpdate: (rating) {
+                print(rating);
+              },
+              itemBuilder: (context, _) {
+                return const Icon(
+                  Icons.star,
+                  color: ratebarColor,
+                );
+              },
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            CustomTextFormField(
+              name: LocaleKeys.commentOnProduct.tr(),
+              image: '',
+              hasPrefixIcon: false,
+              changeContainerHeight: true,
+              containerHight: 89.h,
+              isRateItem: true,
+              isPassword: false,
+            )
+          ],
         ),
       ),
     );

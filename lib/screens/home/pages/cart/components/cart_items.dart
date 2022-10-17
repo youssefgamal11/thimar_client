@@ -10,6 +10,8 @@ import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 
+import '../../../../../core/widgets/buttons/authButton.dart';
+
 class CartItem extends StatelessWidget {
   CartItem({Key? key, this.image, this.productName, this.productPrice})
       : super(key: key);
@@ -106,42 +108,6 @@ class CartItem extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomIconButton extends StatelessWidget {
-  CustomIconButton(
-      {Key? key,
-      this.function,
-      required this.hight,
-      required this.width,
-      required this.iconColor,
-      required this.svgPic,
-      required this.backgroundColor})
-      : super(key: key);
-  double width, hight;
-  var svgPic;
-  Color iconColor, backgroundColor;
-  Function? function;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: hight,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.r)),
-      child: TextButton(
-          style: TextButton.styleFrom(
-            backgroundColor: backgroundColor,
-          ),
-          onPressed: () {
-            function!();
-          },
-          child: SvgPicture.asset(
-            svgPic,
-            color: iconColor,
-          )),
     );
   }
 }

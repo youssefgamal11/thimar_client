@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
 
@@ -68,6 +69,42 @@ class ResendButton extends StatelessWidget {
               style: authGreenTextStyle.copyWith(fontSize: 15.sp),
             )),
       ),
+    );
+  }
+}
+
+class CustomIconButton extends StatelessWidget {
+  CustomIconButton(
+      {Key? key,
+      this.function,
+      required this.hight,
+      required this.width,
+      required this.iconColor,
+      required this.svgPic,
+      required this.backgroundColor})
+      : super(key: key);
+  double width, hight;
+  var svgPic;
+  Color iconColor, backgroundColor;
+  Function? function;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: hight,
+      child: TextButton(
+          style: TextButton.styleFrom(
+              backgroundColor: backgroundColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.r))),
+          onPressed: () {
+            function!();
+          },
+          child: SvgPicture.asset(
+            svgPic,
+            color: iconColor,
+          )),
     );
   }
 }
