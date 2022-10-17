@@ -251,7 +251,8 @@ class CodegenLoader extends AssetLoader{
   "notes": "ملاحظات وتعليمات",
   "choosePaymentMethod": "اختر طريقة الدفع",
   "orderSummary": "ملخص الطلب",
-  "writeYourCommentHere": "اكتب تعليقك هنا"
+  "writeYourCommentHere": "اكتب تعليقك هنا",
+  "changeData": "تعديل البيانات"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -490,7 +491,8 @@ static const Map<String,dynamic> en = {
   "notes": "notes and instructions",
   "choosePaymentMethod": "choose payment method",
   "orderSummary": "order summary",
-  "writeYourCommentHere": "write your comment here"
+  "writeYourCommentHere": "write your comment here",
+  "changeData": "change data"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }
