@@ -12,6 +12,7 @@ import 'package:thimar_app/screens/home/pages/about_app/view.dart';
 import 'package:thimar_app/screens/home/pages/cart/view.dart';
 import 'package:thimar_app/screens/home/pages/complete_order/view.dart';
 import 'package:thimar_app/screens/home/pages/deliver_now/view.dart';
+import 'package:thimar_app/screens/home/pages/faqs/view.dart';
 import 'package:thimar_app/screens/home/pages/myorders/view.dart';
 import 'package:thimar_app/screens/home/pages/personal_inforamtions/view.dart';
 import 'package:thimar_app/screens/home/pages/privacy_policy/view.dart';
@@ -87,7 +88,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: TransactionHistory(),
+      home: FaqsScreen(),
     );
   }
 }

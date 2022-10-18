@@ -256,7 +256,8 @@ class CodegenLoader extends AssetLoader{
   "yourBalance": "رصيدك",
   "showAll": "عرض الكل",
   "youPaidForThisProduct": "دفعت مقابل هذا الطلب",
-  "connectWithUs": "تواصل معنا"
+  "connectWithUs": "تواصل معنا",
+  "howToPayWithCredit": "كيفية الدفع عن طريق البطاقة الإئتمانيه؟"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -500,7 +501,8 @@ static const Map<String,dynamic> en = {
   "yourBalance": "your balance",
   "showAll": "show all",
   "youPaidForThisProduct": "you paid for this product",
-  "connectWithUs": "connect with us"
+  "connectWithUs": "connect with us",
+  "howToPayWithCredit": "how to Pay with credit"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

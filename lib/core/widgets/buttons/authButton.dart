@@ -77,16 +77,20 @@ class CustomIconButton extends StatelessWidget {
   CustomIconButton(
       {Key? key,
       this.function,
+      this.isAssetImage = false,
       required this.hight,
       required this.width,
       required this.iconColor,
-      required this.svgPic,
+      this.svgPic,
+      this.assetImagePath,
       required this.backgroundColor})
       : super(key: key);
   double width, hight;
   var svgPic;
   Color iconColor, backgroundColor;
   Function? function;
+  bool isAssetImage;
+  String? assetImagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +105,14 @@ class CustomIconButton extends StatelessWidget {
           onPressed: () {
             function!();
           },
-          child: SvgPicture.asset(
-            svgPic,
-            color: iconColor,
-          )),
+          child: isAssetImage
+              ? Image.asset(
+                  assetImagePath!,
+                )
+              : SvgPicture.asset(
+                  svgPic,
+                  color: iconColor,
+                )),
     );
   }
 }

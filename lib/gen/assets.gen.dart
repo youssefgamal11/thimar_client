@@ -53,6 +53,10 @@ class $AssetsImagesGen {
   AssetGenImage get appLogo1 =>
       const AssetGenImage('assets/images/app_logo1.png');
 
+  /// File path: assets/images/arrow_down.png
+  AssetGenImage get arrowDown =>
+      const AssetGenImage('assets/images/arrow_down.png');
+
   /// File path: assets/images/back.png
   AssetGenImage get back => const AssetGenImage('assets/images/back.png');
 
@@ -243,6 +247,7 @@ class $AssetsImagesGen {
         addToCart,
         appLogo,
         appLogo1,
+        arrowDown,
         back,
         calling,
         camera,
