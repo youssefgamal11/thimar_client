@@ -30,6 +30,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/COCO-Duotone-Arrow - Top.png
+  AssetGenImage get cOCODuotoneArrowTop =>
+      const AssetGenImage('assets/images/COCO-Duotone-Arrow - Top.png');
+
   /// File path: assets/images/about.svg
   String get about => 'assets/images/about.svg';
 
@@ -172,6 +176,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/questions.svg
   String get questions => 'assets/images/questions.svg';
 
+  /// File path: assets/images/red-top-arrow.png
+  AssetGenImage get redTopArrow =>
+      const AssetGenImage('assets/images/red-top-arrow.png');
+
   /// File path: assets/images/saudi_flag.jpg
   AssetGenImage get saudiFlag =>
       const AssetGenImage('assets/images/saudi_flag.jpg');
@@ -225,6 +233,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        cOCODuotoneArrowTop,
         about,
         accountImage,
         addToCart,
@@ -265,6 +274,7 @@ class $AssetsImagesGen {
         phone,
         phoneGreen,
         questions,
+        redTopArrow,
         saudiFlag,
         search,
         security,
@@ -572,6 +582,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/dates.svg
   String get dates => 'assets/images/svg_images/dates.svg';
 
+  /// File path: assets/images/svg_images/downarrow.svg
+  String get downarrow => 'assets/images/svg_images/downarrow.svg';
+
   /// File path: assets/images/svg_images/edit.svg
   String get edit => 'assets/images/svg_images/edit.svg';
 
@@ -659,6 +672,7 @@ class $AssetsImagesSvgImagesGen {
         datePng,
         dateSvg,
         dates,
+        downarrow,
         edit,
         favourite,
         filter,

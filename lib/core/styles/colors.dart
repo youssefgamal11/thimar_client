@@ -28,7 +28,7 @@ const mintgreenColor = Color(0xffF1F6ED);
 const lightPinkColor = Color(0xffFFE3E3);
 const redColor = Color(0xffFF0000);
 const ratebarColor = Color(0xffFF9529);
-const grayColor = Color(0xffD0D0D0);
+const grayColor = Color(0xff9C9C9C);
 const lightGreenColor = Color(0xff6AA431);
 MaterialColor buildMaterialColor(Color color) {
   List strengths = <double>[.05];

@@ -239,7 +239,13 @@
   "choosePaymentMethod" :"choose payment method",
   "orderSummary" :"order summary",
   "writeYourCommentHere" :"write your comment here",
-  "changeData" :"change data"
+  "changeData" :"change data",
+  "yourBalance" :"your balance" ,
+  "showAll" :"show all",
+  "youPaidForThisProduct" : "you paid for this product"
+ 
+
+
 
 
 

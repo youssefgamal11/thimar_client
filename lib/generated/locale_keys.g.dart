@@ -239,5 +239,8 @@ abstract class  LocaleKeys {
   static const orderSummary = 'orderSummary';
   static const writeYourCommentHere = 'writeYourCommentHere';
   static const changeData = 'changeData';
+  static const yourBalance = 'yourBalance';
+  static const showAll = 'showAll';
+  static const youPaidForThisProduct = 'youPaidForThisProduct';
 
 }

@@ -236,7 +236,13 @@
   "choosePaymentMethod" :"اختر طريقة الدفع",
   "orderSummary" :"ملخص الطلب" ,
   "writeYourCommentHere" :"اكتب تعليقك هنا",
-  "changeData" :"تعديل البيانات"
+  "changeData" :"تعديل البيانات",
+  "yourBalance" :"رصيدك" ,
+  "showAll" :"عرض الكل" ,
+  "youPaidForThisProduct" : "دفعت مقابل هذا الطلب"
+
+  
+
 
 
 
