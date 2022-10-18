@@ -111,6 +111,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/language.svg
   String get language => 'assets/images/language.svg';
 
+  /// File path: assets/images/location-image.png
+  AssetGenImage get locationImage =>
+      const AssetGenImage('assets/images/location-image.png');
+
   /// File path: assets/images/location.png
   AssetGenImage get locationPng =>
       const AssetGenImage('assets/images/location.png');
@@ -256,6 +260,7 @@ class $AssetsImagesGen {
         home,
         joinUs,
         language,
+        locationImage,
         locationPng,
         locationSvg,
         logo,

@@ -27,6 +27,7 @@ import 'core/Kiwi.dart';
 import 'package:flutter/services.dart';
 
 import 'screens/home/pages/address/view.dart';
+import 'screens/home/pages/connect_us/view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,7 +86,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: WalletScreen(),
+      home: ConnectWithUs(),
     );
   }
 }

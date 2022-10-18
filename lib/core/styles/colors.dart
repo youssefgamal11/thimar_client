@@ -30,6 +30,7 @@ const redColor = Color(0xffFF0000);
 const ratebarColor = Color(0xffFF9529);
 const grayColor = Color(0xff9C9C9C);
 const lightGreenColor = Color(0xff6AA431);
+const blackColor = Color(0xff1E1E1E);
 MaterialColor buildMaterialColor(Color color) {
   List strengths = <double>[.05];
   Map<int, Color> swatch = {};
