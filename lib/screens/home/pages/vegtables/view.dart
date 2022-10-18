@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
@@ -29,6 +30,8 @@ class VegtablesScreen extends StatelessWidget {
               image: Assets.images.search.path,
               removeBorder: true,
               widget: SvgPicture.asset(Assets.images.svgImages.filter),
+              changeFillColor: true,
+              fillColor: lightGrayColor,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
