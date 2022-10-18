@@ -35,62 +35,66 @@ class _FaqsScreenState extends State<FaqsScreen> {
             },
             itemCount: 1,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isCollapse = !isCollapse;
-                  });
-                },
-                child: Container(
-                  width: 342.w,
-                  height: isCollapse ? 50.h : 130.h,
-                  decoration: BoxDecoration(
-                      color: whiteBackground,
-                      borderRadius: BorderRadius.circular(10.r)),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.w, vertical: 10.h),
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  LocaleKeys.howToPayWithCredit.tr(),
-                                  style:
-                                      mainTextStyle.copyWith(fontSize: 15.sp),
-                                ),
-                                Spacer(),
-                                CustomIconButton(
-                                  hight: 25.h,
-                                  width: 25.w,
-                                  iconColor: greenButtonColor,
-                                  backgroundColor: mintgreenColor,
-                                  isAssetImage: true,
-                                  assetImagePath: isCollapse
-                                      ? Assets.images.arrowDown.path
-                                      : Assets.images.cOCODuotoneArrowTop.path,
-                                  function: () {
-                                    setState(() {
-                                      isCollapse = !isCollapse;
-                                    });
-                                  },
-                                )
-                              ],
-                            ),
-                            isCollapse
-                                ? SizedBox.shrink()
-                                : Padding(
-                                    padding: EdgeInsets.only(top: 15.h),
-                                    child: Text(
-                                      'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق,',
-                                      maxLines: 4,
-                                    ),
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.h),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isCollapse = !isCollapse;
+                    });
+                  },
+                  child: Container(
+                    width: 342.w,
+                    height: isCollapse ? 50.h : 130.h,
+                    decoration: BoxDecoration(
+                        color: whiteBackground,
+                        borderRadius: BorderRadius.circular(10.r)),
+                    child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.w, vertical: 10.h),
+                        child: Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    LocaleKeys.howToPayWithCredit.tr(),
+                                    style:
+                                        mainTextStyle.copyWith(fontSize: 15.sp),
                                   ),
-                          ],
-                        ),
-                      )),
+                                  Spacer(),
+                                  CustomIconButton(
+                                    hight: 25.h,
+                                    width: 25.w,
+                                    iconColor: greenButtonColor,
+                                    backgroundColor: mintgreenColor,
+                                    isAssetImage: true,
+                                    assetImagePath: isCollapse
+                                        ? Assets.images.arrowDown.path
+                                        : Assets
+                                            .images.cOCODuotoneArrowTop.path,
+                                    function: () {
+                                      setState(() {
+                                        isCollapse = !isCollapse;
+                                      });
+                                    },
+                                  )
+                                ],
+                              ),
+                              isCollapse
+                                  ? SizedBox.shrink()
+                                  : Padding(
+                                      padding: EdgeInsets.only(top: 15.h),
+                                      child: Text(
+                                        'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق,',
+                                        maxLines: 4,
+                                      ),
+                                    ),
+                            ],
+                          ),
+                        )),
+                  ),
                 ),
               );
             }));
