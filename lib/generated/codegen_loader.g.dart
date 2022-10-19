@@ -258,7 +258,9 @@ class CodegenLoader extends AssetLoader{
   "youPaidForThisProduct": "دفعت مقابل هذا الطلب",
   "connectWithUs": "تواصل معنا",
   "howToPayWithCredit": "كيفية الدفع عن طريق البطاقة الإئتمانيه؟",
-  "discrption": "الوصف"
+  "discrption": "الوصف",
+  "changeToVipAccount": "  تحويل لحساب VIP",
+  "vipAccount": "  VIP حساب "
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -504,7 +506,9 @@ static const Map<String,dynamic> en = {
   "youPaidForThisProduct": "you paid for this product",
   "connectWithUs": "connect with us",
   "howToPayWithCredit": "how to Pay with credit",
-  "discrption": "discrption"
+  "discrption": "discrption",
+  "changeToVipAccount": "chnage to VIP account",
+  "vipAccount": "  VIP account "
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

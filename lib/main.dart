@@ -33,6 +33,7 @@ import 'package:flutter/services.dart';
 import 'screens/home/pages/address/view.dart';
 import 'screens/home/pages/connect_us/view.dart';
 import 'screens/home/pages/vegtables/view.dart';
+import 'screens/home/pages/vip/view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -91,7 +92,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: ProductDetailsScreen(),
+      home: VipScreen(),
     );
   }
 }

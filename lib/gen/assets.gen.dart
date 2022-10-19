@@ -60,6 +60,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/back.png
   AssetGenImage get back => const AssetGenImage('assets/images/back.png');
 
+  /// File path: assets/images/best-seller.png
+  AssetGenImage get bestSeller =>
+      const AssetGenImage('assets/images/best-seller.png');
+
   $AssetsImagesBottomNavGen get bottomNav => const $AssetsImagesBottomNavGen();
 
   /// File path: assets/images/calling.png
@@ -188,6 +192,9 @@ class $AssetsImagesGen {
   AssetGenImage get redTopArrow =>
       const AssetGenImage('assets/images/red-top-arrow.png');
 
+  /// File path: assets/images/right.png
+  AssetGenImage get right => const AssetGenImage('assets/images/right.png');
+
   /// File path: assets/images/saudi_flag.jpg
   AssetGenImage get saudiFlag =>
       const AssetGenImage('assets/images/saudi_flag.jpg');
@@ -249,6 +256,7 @@ class $AssetsImagesGen {
         appLogo1,
         arrowDown,
         back,
+        bestSeller,
         calling,
         camera,
         carrots,
@@ -285,6 +293,7 @@ class $AssetsImagesGen {
         phoneGreen,
         questions,
         redTopArrow,
+        right,
         saudiFlag,
         search,
         security,

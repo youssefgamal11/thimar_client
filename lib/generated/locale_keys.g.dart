@@ -245,5 +245,7 @@ abstract class  LocaleKeys {
   static const connectWithUs = 'connectWithUs';
   static const howToPayWithCredit = 'howToPayWithCredit';
   static const discrption = 'discrption';
+  static const changeToVipAccount = 'changeToVipAccount';
+  static const vipAccount = 'vipAccount';
 
 }
