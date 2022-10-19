@@ -9,11 +9,13 @@ import 'package:thimar_app/core/unfocus.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/codegen_loader.g.dart';
 import 'package:thimar_app/screens/home/pages/about_app/view.dart';
+import 'package:thimar_app/screens/home/pages/add_address/view.dart';
 import 'package:thimar_app/screens/home/pages/cart/view.dart';
 import 'package:thimar_app/screens/home/pages/complete_order/view.dart';
 import 'package:thimar_app/screens/home/pages/deliver_now/view.dart';
 import 'package:thimar_app/screens/home/pages/faqs/view.dart';
 import 'package:thimar_app/screens/home/pages/myorders/view.dart';
+import 'package:thimar_app/screens/home/pages/order_details/view.dart';
 import 'package:thimar_app/screens/home/pages/personal_inforamtions/view.dart';
 import 'package:thimar_app/screens/home/pages/privacy_policy/view.dart';
 import 'package:thimar_app/screens/home/pages/product_details/view.dart';
@@ -89,7 +91,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: VegtablesScreen(),
+      home: ProductDetailsScreen(),
     );
   }
 }

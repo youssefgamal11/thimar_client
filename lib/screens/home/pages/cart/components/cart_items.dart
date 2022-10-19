@@ -115,17 +115,19 @@ class CartItem extends StatelessWidget {
 class DiscountConainter extends StatelessWidget {
   DiscountConainter(
       {Key? key,
+      this.hasPaymentMethod = false,
       required this.discount,
       required this.total,
       required this.totalAfterDiscount})
       : super(key: key);
   String total, discount, totalAfterDiscount;
+  bool hasPaymentMethod;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 343.w,
+        width: hasPaymentMethod ? 343.w : 346,
         height: 111.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r), color: mintgreenColor),
@@ -186,7 +188,32 @@ class DiscountConainter extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              hasPaymentMethod
+                  ? Column(
+                      children: [
+                        Container(
+                          height: 1,
+                          width: double.infinity,
+                          color: dividerColor,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(LocaleKeys.payWith.tr(), style: textStyle),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Image.asset(
+                              Assets.images.visa.path,
+                              width: 40,
+                              height: 20,
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  : SizedBox.shrink()
             ],
           ),
         ),
