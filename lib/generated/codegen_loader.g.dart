@@ -260,7 +260,8 @@ class CodegenLoader extends AssetLoader{
   "howToPayWithCredit": "كيفية الدفع عن طريق البطاقة الإئتمانيه؟",
   "discrption": "الوصف",
   "changeToVipAccount": "  تحويل لحساب VIP",
-  "vipAccount": "  VIP حساب "
+  "vipAccount": "  VIP حساب ",
+  "addCard": "اضافه بطاقه"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -508,7 +509,8 @@ static const Map<String,dynamic> en = {
   "howToPayWithCredit": "how to Pay with credit",
   "discrption": "discrption",
   "changeToVipAccount": "chnage to VIP account",
-  "vipAccount": "  VIP account "
+  "vipAccount": "  VIP account ",
+  "addCard": "add card"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

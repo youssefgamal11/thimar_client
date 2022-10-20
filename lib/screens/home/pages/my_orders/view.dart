@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-import 'package:thimar_app/screens/home/pages/myorders/components/current_items.dart';
-import 'package:thimar_app/screens/home/pages/myorders/components/finished_items.dart';
+
+import 'components/current_items.dart';
+import 'components/finished_items.dart';
 
 class MyordersScreen extends StatefulWidget {
   const MyordersScreen({Key? key}) : super(key: key);

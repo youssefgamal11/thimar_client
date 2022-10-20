@@ -19,26 +19,17 @@ class FavouriteScreen extends StatelessWidget {
         title: LocaleKeys.favorites.tr(),
         hight: 50,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
+      body: GridView.builder(
           padding: EdgeInsets.symmetric(horizontal: 8.w),
-          child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 12,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 0,
-                mainAxisSpacing: 2,
-                childAspectRatio: 0.78,
-              ),
-              itemBuilder: (context, index) {
-                return ProductItem(
-                  addToCartExist: false,
-                );
-              }),
-        ),
-      ),
+          itemCount: 12,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 2,
+            childAspectRatio: 0.78,
+          ),
+          itemBuilder: (context, index) => ProductItem(
+                addToCartExist: false,
+              )),
     );
   }
 }

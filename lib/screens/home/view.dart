@@ -11,11 +11,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/screens/home/components/sections.dart';
 import 'package:thimar_app/screens/home/pages/favourite/view.dart';
 import 'package:thimar_app/screens/home/pages/main/view.dart';
-import 'package:thimar_app/screens/home/pages/myaccount/view.dart';
-import 'package:thimar_app/screens/home/pages/myorders/view.dart';
+import 'package:thimar_app/screens/home/pages/my_orders/view.dart';
+
 import 'package:thimar_app/screens/home/pages/notifications/view.dart';
 import '../../gen/assets.gen.dart';
 import 'components/product_item.dart';
+import 'pages/my_account/view.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({Key? key}) : super(key: key);

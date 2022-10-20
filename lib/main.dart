@@ -14,8 +14,8 @@ import 'package:thimar_app/screens/home/pages/cart/view.dart';
 import 'package:thimar_app/screens/home/pages/complete_order/view.dart';
 import 'package:thimar_app/screens/home/pages/deliver_now/view.dart';
 import 'package:thimar_app/screens/home/pages/faqs/view.dart';
-import 'package:thimar_app/screens/home/pages/myorders/view.dart';
 import 'package:thimar_app/screens/home/pages/order_details/view.dart';
+import 'package:thimar_app/screens/home/pages/payment/view.dart';
 import 'package:thimar_app/screens/home/pages/personal_inforamtions/view.dart';
 import 'package:thimar_app/screens/home/pages/privacy_policy/view.dart';
 import 'package:thimar_app/screens/home/pages/product_details/view.dart';
@@ -31,7 +31,6 @@ import 'core/Kiwi.dart';
 import 'package:flutter/services.dart';
 
 import 'screens/home/pages/address/view.dart';
-import 'screens/home/pages/connect_us/view.dart';
 import 'screens/home/pages/vegtables/view.dart';
 import 'screens/home/pages/vip/view.dart';
 
@@ -92,7 +91,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         ),
       ),
-      home: VipScreen(),
+      home: PaymentScreen(),
     );
   }
 }

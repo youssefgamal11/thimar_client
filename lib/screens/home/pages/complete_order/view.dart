@@ -110,7 +110,6 @@ class CompleteOrderScreen extends StatelessWidget {
                         hasPrefixIcon: false,
                         image: '',
                         name: LocaleKeys.chooseTime.tr(),
-                        isPassword: false,
                         widget: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 17.w, vertical: 17.h),

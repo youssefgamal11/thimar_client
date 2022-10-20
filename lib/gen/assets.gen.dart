@@ -237,6 +237,10 @@ class $AssetsImagesGen {
   AssetGenImage get vegtables =>
       const AssetGenImage('assets/images/vegtables.png');
 
+  /// File path: assets/images/vesa-data.png
+  AssetGenImage get vesaData =>
+      const AssetGenImage('assets/images/vesa-data.png');
+
   /// File path: assets/images/vip.png
   AssetGenImage get vip => const AssetGenImage('assets/images/vip.png');
 
@@ -306,6 +310,7 @@ class $AssetsImagesGen {
         userPng,
         userSvg,
         vegtables,
+        vesaData,
         vip,
         visa,
         wallet
@@ -674,6 +679,9 @@ class $AssetsImagesSvgImagesGen {
   /// File path: assets/images/svg_images/vegetable.svg
   String get vegetable => 'assets/images/svg_images/vegetable.svg';
 
+  /// File path: assets/images/svg_images/vesa_image.svg
+  String get vesaImage => 'assets/images/svg_images/vesa_image.svg';
+
   /// File path: assets/images/svg_images/wallet.svg
   String get wallet => 'assets/images/svg_images/wallet.svg';
 
@@ -714,6 +722,7 @@ class $AssetsImagesSvgImagesGen {
         trash,
         treeLeave,
         vegetable,
+        vesaImage,
         wallet
       ];
 }

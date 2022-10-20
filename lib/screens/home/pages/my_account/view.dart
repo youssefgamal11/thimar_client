@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-import 'package:thimar_app/screens/home/pages/myaccount/components/screen_data.dart';
+import 'package:thimar_app/screens/home/pages/my_account/components/screen_data.dart';
 
 import '../../../../gen/assets.gen.dart';
 

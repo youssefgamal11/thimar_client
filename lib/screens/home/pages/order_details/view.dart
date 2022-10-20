@@ -8,8 +8,8 @@ import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 import 'package:thimar_app/screens/home/pages/cart/components/cart_items.dart';
-import 'package:thimar_app/screens/home/pages/myorders/components/order_item.dart';
 
+import '../my_orders/components/order_item.dart';
 import 'components/address_item.dart';
 
 class ProductDetailsScreen extends StatelessWidget {

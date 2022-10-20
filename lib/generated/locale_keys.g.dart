@@ -247,5 +247,6 @@ abstract class  LocaleKeys {
   static const discrption = 'discrption';
   static const changeToVipAccount = 'changeToVipAccount';
   static const vipAccount = 'vipAccount';
+  static const addCard = 'addCard';
 
 }
