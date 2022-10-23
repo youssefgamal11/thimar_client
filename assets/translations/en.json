@@ -248,7 +248,15 @@
   "discrption" :"discrption",
   "changeToVipAccount" :"chnage to VIP account",
   "vipAccount" :"  VIP account ",
-  "addCard": "add card"
+  "addCard": "add card",
+  "savedCards": "saved cards",
+  "addCreditCard" : "add credit card",
+  "confirmChoice" : "confirm choice",
+  "ranking" : "ranking" ,
+  "priceFromLowToHigh" : "price from low to high",
+  "priceFromHighToLow" : "price from high to low"
+
+
 
 
 

@@ -245,7 +245,18 @@
   "discrption" :"الوصف",
   "changeToVipAccount" :"  تحويل لحساب VIP",
   "vipAccount" :"  VIP حساب ",
-  "addCard": "اضافه بطاقه"
+  "addCard": "اضافه بطاقه",
+  "savedCards": "البطاقات المحفوظه",
+  "addCreditCard" : "اضف بطاقه دفع",
+  "confirmChoice" : "تأكيد الاختيار",
+  "ranking" : "الترتيب" ,
+  "priceFromLowToHigh" : "من السعر اللاقل للاعلى",
+  "priceFromHighToLow" : "من السعر الاعلى الى الاقل"
+
+
+
+
+
 
   
 

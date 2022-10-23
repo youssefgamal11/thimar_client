@@ -6,8 +6,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/naviagtion.dart';
-import 'package:thimar_app/screens/home/pages/cart/view.dart';
-
+import 'package:thimar_app/screens/cart/view.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/widgets/inputs/inputs.dart';
 import '../../../../gen/assets.gen.dart';

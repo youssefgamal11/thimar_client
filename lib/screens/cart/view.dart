@@ -10,7 +10,7 @@ import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-import 'package:thimar_app/screens/home/pages/cart/components/cart_items.dart';
+import 'package:thimar_app/screens/cart/components/cart_items.dart';
 import 'package:thimar_app/screens/home/view.dart';
 
 import '../../../../core/widgets/inputs/inputs.dart';

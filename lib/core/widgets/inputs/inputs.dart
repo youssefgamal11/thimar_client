@@ -24,6 +24,7 @@ class CustomTextFormField extends StatefulWidget {
       writeMuch;
   Color? fillColor;
   double? containerHight;
+  VoidCallback? onPrefixPressed;
 
   CustomTextFormField(
       {Key? key,
@@ -46,7 +47,8 @@ class CustomTextFormField extends StatefulWidget {
       this.isCitySelection = false,
       this.fillColor,
       this.removeBorder = false,
-      this.hasPrefixIcon = true})
+      this.hasPrefixIcon = true,
+      this.onPrefixPressed})
       : super(key: key);
 
   @override
@@ -105,7 +107,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                         fontFamily: FontFamily.regular,
                       ),
                       prefixIcon: widget.hasPrefixIcon
-                          ? Image.asset(widget.image)
+                          ? GestureDetector(
+                              onTap: () {
+                                widget.onPrefixPressed!();
+                              },
+                              child: Image.asset(widget.image))
                           : null,
                       suffixIcon: widget.isPassword
                           ? GestureDetector(

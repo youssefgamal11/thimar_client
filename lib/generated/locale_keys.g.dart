@@ -248,5 +248,11 @@ abstract class  LocaleKeys {
   static const changeToVipAccount = 'changeToVipAccount';
   static const vipAccount = 'vipAccount';
   static const addCard = 'addCard';
+  static const savedCards = 'savedCards';
+  static const addCreditCard = 'addCreditCard';
+  static const confirmChoice = 'confirmChoice';
+  static const ranking = 'ranking';
+  static const priceFromLowToHigh = 'priceFromLowToHigh';
+  static const priceFromHighToLow = 'priceFromHighToLow';
 
 }

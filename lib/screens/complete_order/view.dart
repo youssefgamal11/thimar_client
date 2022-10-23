@@ -1,9 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
@@ -12,9 +9,8 @@ import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
-
-import '../cart/components/cart_items.dart';
-import 'components/payment_item.dart';
+import 'package:thimar_app/screens/cart/components/cart_items.dart';
+import 'package:thimar_app/screens/complete_order/components/payment_item.dart';
 
 class CompleteOrderScreen extends StatelessWidget {
   const CompleteOrderScreen({Key? key}) : super(key: key);
@@ -181,7 +177,10 @@ class CompleteOrderScreen extends StatelessWidget {
         ),
         Align(
             alignment: Alignment.bottomCenter,
-            child: AuthButton(buttonName: LocaleKeys.finishOrder.tr()))
+            child: AuthButton(
+              buttonName: LocaleKeys.finishOrder.tr(),
+              function: () {},
+            ))
       ]),
     );
   }

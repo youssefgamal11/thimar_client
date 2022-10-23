@@ -241,6 +241,10 @@ class $AssetsImagesGen {
   AssetGenImage get vesaData =>
       const AssetGenImage('assets/images/vesa-data.png');
 
+  /// File path: assets/images/vesa_background.png
+  AssetGenImage get vesaBackground =>
+      const AssetGenImage('assets/images/vesa_background.png');
+
   /// File path: assets/images/vip.png
   AssetGenImage get vip => const AssetGenImage('assets/images/vip.png');
 
@@ -311,6 +315,7 @@ class $AssetsImagesGen {
         userSvg,
         vegtables,
         vesaData,
+        vesaBackground,
         vip,
         visa,
         wallet

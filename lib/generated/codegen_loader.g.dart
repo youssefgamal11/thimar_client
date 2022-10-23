@@ -261,7 +261,13 @@ class CodegenLoader extends AssetLoader{
   "discrption": "الوصف",
   "changeToVipAccount": "  تحويل لحساب VIP",
   "vipAccount": "  VIP حساب ",
-  "addCard": "اضافه بطاقه"
+  "addCard": "اضافه بطاقه",
+  "savedCards": "البطاقات المحفوظه",
+  "addCreditCard": "اضف بطاقه دفع",
+  "confirmChoice": "تأكيد الاختيار",
+  "ranking": "الترتيب",
+  "priceFromLowToHigh": "من السعر اللاقل للاعلى",
+  "priceFromHighToLow": "من السعر الاعلى الى الاقل"
 };
 static const Map<String,dynamic> en = {
   "helloAgain": "Welcome Again",
@@ -510,7 +516,13 @@ static const Map<String,dynamic> en = {
   "discrption": "discrption",
   "changeToVipAccount": "chnage to VIP account",
   "vipAccount": "  VIP account ",
-  "addCard": "add card"
+  "addCard": "add card",
+  "savedCards": "saved cards",
+  "addCreditCard": "add credit card",
+  "confirmChoice": "confirm choice",
+  "ranking": "ranking",
+  "priceFromLowToHigh": "price from low to high",
+  "priceFromHighToLow": "price from high to low"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }
