@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/screens/cart/view.dart';
+import 'package:thimar_app/screens/category_products/view.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/bloc.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/events.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/states.dart';
@@ -163,14 +164,21 @@ class MainScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Row(
                           children: List.generate(
-                        bloc.categoriesModel!.data!.length,
-                        (index) => SectionComponent(
-                            sectionName: bloc.categoriesModel!.data![index].name
-                                .toString(),
+                              bloc.categoriesModel!.data!.length, (index) {
+                        var categoryData = bloc.categoriesModel!.data![index];
+                        return SectionComponent(
+                            sectionName: categoryData.name.toString(),
                             sectionColor: vegatableConatinerColor,
-                            imagePath:
-                                bloc.categoriesModel!.data![index].media!),
-                      )),
+                            imagePath: categoryData.media!,
+                            function: () {
+                              navigateTo(
+                                  leaveHistory: true,
+                                  page: CategoryProductsScreen(
+                                    categoryId: categoryData.id!,
+                                    categoryName: categoryData.name!,
+                                  ));
+                            });
+                      })),
                     ),
                   );
                 }
@@ -191,7 +199,7 @@ class MainScreen extends StatelessWidget {
                 if (bloc.productsModel == null) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is ProductsDataFailState) {
-                  return const Text('category product failled state');
+                  return const Text('category products failled state');
                 } else {
                   return Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -207,15 +215,15 @@ class MainScreen extends StatelessWidget {
                           childAspectRatio: 163 / 250,
                         ),
                         itemBuilder: (context, index) {
+                          var productData = bloc.productsModel!.data![index];
                           return ItemProduct(
-                            productName: bloc.productsModel!.data![index].title,
-                            discount: bloc.productsModel!.data![index].discount,
-                            networkImage:
-                                bloc.productsModel!.data![index].mainImage,
-                            amount: bloc.productsModel!.data![index].unit!.name,
-                            price: bloc.productsModel!.data![index].price,
-                            priceBeforeDiscount: bloc.productsModel!
-                                .data![index].priceBeforeDiscount,
+                            productName: productData.title,
+                            discount: productData.discount,
+                            networkImage: productData.mainImage,
+                            amount: productData.unit!.name,
+                            price: productData.price,
+                            priceBeforeDiscount:
+                                productData.priceBeforeDiscount,
                           );
                         }),
                   );

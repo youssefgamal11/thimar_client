@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kiwi/kiwi.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
@@ -10,28 +12,37 @@ import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
+import 'package:thimar_app/screens/category_products/bloc/bloc.dart';
+import 'package:thimar_app/screens/category_products/bloc/events.dart';
+import 'package:thimar_app/screens/category_products/bloc/states.dart';
 import 'package:thimar_app/screens/home/components/product_item.dart';
+import 'package:thimar_app/screens/home/view.dart';
 
-class VegtablesScreen extends StatefulWidget {
-  const VegtablesScreen({Key? key}) : super(key: key);
+class CategoryProductsScreen extends StatefulWidget {
+  CategoryProductsScreen(
+      {Key? key, required this.categoryId, required this.categoryName})
+      : super(key: key);
+  final int categoryId;
+  final String categoryName;
 
   @override
-  State<VegtablesScreen> createState() => _VegtablesScreenState();
+  State<CategoryProductsScreen> createState() => _CategoryProductsScreenState();
 }
 
-class _VegtablesScreenState extends State<VegtablesScreen> {
+class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   RangeValues selectedRange = const RangeValues(1200, 1500);
-  bool? firstValue = false;
-  bool? secondValue = false;
+  bool? firstValue, secondValue = false;
+  final bloc = KiwiContainer().resolve<CategoryProductsBloc>();
 
   @override
   Widget build(BuildContext context) {
+    bloc.categoryId = widget.categoryId;
     return Scaffold(
       appBar: CustomAppBar(
-        title: LocaleKeys.vegtables.tr(),
-        hight: 70.h,
-        hasLeading: true,
-      ),
+          title: widget.categoryName,
+          hight: 70.h,
+          hasLeading: true,
+          screenNameNavigation: Homepage()),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -184,24 +195,43 @@ class _VegtablesScreenState extends State<VegtablesScreen> {
                 )
               ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 6,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 0,
-                    mainAxisSpacing: 2,
-                    childAspectRatio: 1 / 1.32,
-                  ),
-                  itemBuilder: (context, index) {
-                    return ItemProduct(
-                      addToCartExist: false,
+            BlocBuilder(
+                bloc: bloc..add(GetCategoryProductsDataEvent()),
+                builder: (context, state) {
+                  if (state is CategoryProductsDataLoadingState) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (state is CategoryProductsDataSucessState) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: state.model.data!.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 0,
+                            mainAxisSpacing: 2,
+                            childAspectRatio: 1 / 1.32,
+                          ),
+                          itemBuilder: (context, index) {
+                            var productData = state.model.data![index];
+                            return ItemProduct(
+                              addToCartExist: false,
+                              networkImage: productData.mainImage,
+                              discount: productData.discount,
+                              productName: productData.title,
+                              price: productData.price,
+                              amount: productData.unit!.name,
+                              priceBeforeDiscount:
+                                  productData.priceBeforeDiscount,
+                            );
+                          }),
                     );
-                  }),
-            )
+                  } else {
+                    return const Text('check error ');
+                  }
+                })
           ],
         ),
       ),

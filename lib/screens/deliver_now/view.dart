@@ -20,7 +20,7 @@ class DeliverNowScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.dliverNow.tr(),
         hasLeading: true,
-        screenName: const Homepage(),
+        screenNameNavigation: const Homepage(),
         hight: 120.h,
       ),
       body: SingleChildScrollView(

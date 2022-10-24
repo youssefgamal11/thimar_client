@@ -21,7 +21,7 @@ class CartScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.cart.tr(),
         hasLeading: true,
-        screenName: const Homepage(),
+        screenNameNavigation: const Homepage(),
       ),
       body: SingleChildScrollView(
         child: Column(

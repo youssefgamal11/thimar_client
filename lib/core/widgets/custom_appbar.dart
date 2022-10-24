@@ -14,12 +14,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       required this.title,
       this.hasLeading = false,
       this.hight = kToolbarHeight,
-      this.screenName})
+      this.screenNameNavigation})
       : super(key: key);
   String title;
   double hight;
   bool hasLeading;
-  Widget? screenName;
+  Widget? screenNameNavigation;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -28,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: hasLeading
           ? LeadingButton(
-              screen: screenName,
+              screen: screenNameNavigation,
             )
           : null,
       title: Text(

@@ -17,7 +17,7 @@ class RateScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: LocaleKeys.rateProducts.tr(),
           hasLeading: true,
-          screenName: const Homepage(),
+          screenNameNavigation: const Homepage(),
           hight: 70.h,
         ),
         body: Column(
