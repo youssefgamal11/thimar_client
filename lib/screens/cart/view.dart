@@ -1,9 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
@@ -24,7 +21,7 @@ class CartScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.cart.tr(),
         hasLeading: true,
-        screenName: Homepage(),
+        screenName: const Homepage(),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -35,7 +32,7 @@ class CartScreen extends StatelessWidget {
               child: ListView.builder(
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return CartItem(
+                    return ItemCart(
                       image: Assets.images.tomato.path,
                       productName: 'طماطم',
                       productPrice: '50',

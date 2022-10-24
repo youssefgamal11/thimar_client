@@ -1,14 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/styles/styles.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
-import 'package:thimar_app/gen/assets.gen.dart';
-import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 
 import '../../../../core/styles/colors.dart';
@@ -47,7 +42,7 @@ class WalletScreen extends StatelessWidget {
               ),
               DottedBorder(
                   borderType: BorderType.RRect,
-                  dashPattern: [2, 4],
+                  dashPattern: const [2, 4],
                   strokeWidth: 0.8,
                   radius: Radius.circular(8.r),
                   color: greenButtonColor,
@@ -68,7 +63,7 @@ class WalletScreen extends StatelessWidget {
                     LocaleKeys.transactionsHistory.tr(),
                     style: mainTextStyle,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     LocaleKeys.showAll.tr(),
                     style: secondaryTextStyle,
@@ -78,11 +73,11 @@ class WalletScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              WalletCharge(),
+              const WalletCharge(),
               SizedBox(
                 height: 10.h,
               ),
-              PaidForThisProduct()
+              const PaidForThisProduct()
             ],
           ),
         ),

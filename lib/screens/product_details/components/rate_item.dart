@@ -55,7 +55,7 @@ class UsersRate extends StatelessWidget {
                   SizedBox(
                       width: 180.w,
                       height: 40.h,
-                      child: Text(
+                      child: const Text(
                         'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص',
                         maxLines: 2,
                       ))

@@ -38,7 +38,7 @@ class WalletCharge extends StatelessWidget {
                   LocaleKeys.chargeWallet.tr(),
                   style: mainTextStyle.copyWith(fontSize: 15.sp),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'يونيو,2021,',
                   style: TextStyle(
@@ -91,7 +91,7 @@ class PaidForThisProduct extends StatelessWidget {
                   LocaleKeys.youPaidForThisProduct.tr(),
                   style: mainTextStyle.copyWith(fontSize: 15.sp),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'يونيو,2021,',
                   style: TextStyle(
@@ -137,7 +137,7 @@ class PaidForThisProduct extends StatelessWidget {
                         width: 25.w,
                         height: 25.h,
                       )),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     '180 ر.س',
                     style: mainTextStyle.copyWith(

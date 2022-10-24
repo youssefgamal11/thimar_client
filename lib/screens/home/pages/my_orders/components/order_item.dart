@@ -8,8 +8,8 @@ import '../../../../../core/styles/styles.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../../../../generated/locale_keys.g.dart';
 
-class OrderItem extends StatelessWidget {
-  const OrderItem({Key? key}) : super(key: key);
+class ItemOrder extends StatelessWidget {
+  const ItemOrder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

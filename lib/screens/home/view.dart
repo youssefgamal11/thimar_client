@@ -1,25 +1,20 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
-import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:thimar_app/screens/home/components/sections.dart';
 import 'package:thimar_app/screens/home/pages/favourite/view.dart';
 import 'package:thimar_app/screens/home/pages/main/view.dart';
 import 'package:thimar_app/screens/home/pages/my_orders/view.dart';
 
 import 'package:thimar_app/screens/home/pages/notifications/view.dart';
 import '../../gen/assets.gen.dart';
-import 'components/product_item.dart';
 import 'pages/my_account/view.dart';
 
 class Homepage extends StatefulWidget {
-  Homepage({Key? key}) : super(key: key);
+  const Homepage({Key? key}) : super(key: key);
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -29,11 +24,11 @@ class _HomepageState extends State<Homepage> {
   int currentIndex = 0;
 
   List screens = [
-    MainScreen(),
-    MyordersScreen(),
-    NotificationScreen(),
-    FavouriteScreen(),
-    MyaccountScreen(),
+    const MainScreen(),
+    const MyordersScreen(),
+    const NotificationScreen(),
+    const FavouriteScreen(),
+    const MyaccountScreen(),
   ];
   List bottomNavIcons = [
     Assets.images.bottomNav.home1,

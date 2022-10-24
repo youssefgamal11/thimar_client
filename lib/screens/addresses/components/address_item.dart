@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
@@ -10,8 +9,8 @@ import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 
-class AddressItem extends StatelessWidget {
-  const AddressItem({Key? key}) : super(key: key);
+class ItemAddress extends StatelessWidget {
+  const ItemAddress({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class AddressItem extends StatelessWidget {
                   LocaleKeys.house.tr(),
                   style: mainTextStyle,
                 ),
-                Spacer(),
+                const Spacer(),
                 CustomIconButton(
                     hight: 24.h,
                     width: 24.w,

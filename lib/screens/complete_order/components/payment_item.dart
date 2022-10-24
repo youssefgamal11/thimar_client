@@ -1,12 +1,8 @@
-import 'dart:ffi';
+// ignore_for_file: must_be_immutable
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
@@ -15,8 +11,8 @@ import 'package:thimar_app/generated/locale_keys.g.dart';
 import '../../../../../core/styles/colors.dart';
 import '../../../../../core/styles/styles.dart';
 
-class PaymentContainer extends StatelessWidget {
-  PaymentContainer(
+class ItemPayment extends StatelessWidget {
+  ItemPayment(
       {Key? key,
       required this.imagePath,
       this.hasName = false,
@@ -120,7 +116,7 @@ class PaymentContainer extends StatelessWidget {
                     paymentName!,
                     style: mainTextStyle,
                   )
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
           ],
         ),
       ),

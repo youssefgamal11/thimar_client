@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
@@ -15,14 +13,14 @@ import 'package:thimar_app/generated/locale_keys.g.dart';
 import 'package:thimar_app/screens/home/components/product_item.dart';
 
 class VegtablesScreen extends StatefulWidget {
-  VegtablesScreen({Key? key}) : super(key: key);
+  const VegtablesScreen({Key? key}) : super(key: key);
 
   @override
   State<VegtablesScreen> createState() => _VegtablesScreenState();
 }
 
 class _VegtablesScreenState extends State<VegtablesScreen> {
-  RangeValues selectedRange = RangeValues(1200, 1500);
+  RangeValues selectedRange = const RangeValues(1200, 1500);
   bool? firstValue = false;
   bool? secondValue = false;
 
@@ -199,7 +197,7 @@ class _VegtablesScreenState extends State<VegtablesScreen> {
                     childAspectRatio: 1 / 1.32,
                   ),
                   itemBuilder: (context, index) {
-                    return ProductItem(
+                    return ItemProduct(
                       addToCartExist: false,
                     );
                   }),

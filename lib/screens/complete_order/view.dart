@@ -7,7 +7,6 @@ import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
-import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 import 'package:thimar_app/screens/cart/components/cart_items.dart';
 import 'package:thimar_app/screens/complete_order/components/payment_item.dart';
@@ -144,16 +143,16 @@ class CompleteOrderScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    PaymentContainer(
+                    ItemPayment(
                       imagePath: Assets.images.moneyPng.path,
                       hasName: true,
                       paymentName: LocaleKeys.cash.tr(),
                       isActive: true,
                     ),
-                    PaymentContainer(
+                    ItemPayment(
                       imagePath: Assets.images.visa.path,
                     ),
-                    PaymentContainer(
+                    ItemPayment(
                       imagePath: Assets.images.mastercard.path,
                     ),
                   ],

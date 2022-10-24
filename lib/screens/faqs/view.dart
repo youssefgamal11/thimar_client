@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
@@ -11,7 +10,7 @@ import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 
 class FaqsScreen extends StatefulWidget {
-  FaqsScreen({Key? key}) : super(key: key);
+  const FaqsScreen({Key? key}) : super(key: key);
 
   @override
   State<FaqsScreen> createState() => _FaqsScreenState();
@@ -63,7 +62,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
                                     style:
                                         mainTextStyle.copyWith(fontSize: 15.sp),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   CustomIconButton(
                                     hight: 25.h,
                                     width: 25.w,
@@ -83,10 +82,10 @@ class _FaqsScreenState extends State<FaqsScreen> {
                                 ],
                               ),
                               isCollapse
-                                  ? SizedBox.shrink()
+                                  ? const SizedBox.shrink()
                                   : Padding(
                                       padding: EdgeInsets.only(top: 15.h),
-                                      child: Text(
+                                      child: const Text(
                                         'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق,',
                                         maxLines: 4,
                                       ),

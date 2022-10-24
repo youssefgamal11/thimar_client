@@ -12,7 +12,7 @@ import '../../../../gen/assets.gen.dart';
 import 'components/rate_item.dart';
 
 class ProductDetails extends StatefulWidget {
-  ProductDetails({Key? key}) : super(key: key);
+  const ProductDetails({Key? key}) : super(key: key);
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -59,7 +59,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                             onPageChanged: (index, reason) {
                               setState(() {
                                 activeIndex = index;
-                                print(activeIndex);
                               });
                             })),
                   ),
@@ -118,7 +117,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   fontFamily: FontFamily.bold,
                                   fontSize: 22.sp),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Text(
                               '40%',
                               style:
@@ -126,14 +125,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 5.w),
-                              child: Text(
+                              child: const Text(
                                 '45 ر.س',
                                 style: TextStyle(
                                     color: greenFontColor,
                                     fontFamily: FontFamily.bold),
                               ),
                             ),
-                            Text(
+                            const Text(
                               '56 ر.س',
                               style: TextStyle(
                                   color: greenFontColor,
@@ -153,7 +152,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   fontFamily: FontFamily.light,
                                   fontSize: 19.sp),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Container(
                               width: 109.w,
                               height: 35.h,
@@ -246,7 +245,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                               children: List.generate(5, (index) {
-                            return UsersRate();
+                            return const UsersRate();
                           })),
                         ),
                         SizedBox(
@@ -266,7 +265,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                               children: List.generate(5, (index) {
-                            return ProductItem(
+                            return ItemProduct(
                               addToCartExist: false,
                             );
                           })),
@@ -301,14 +300,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                   padding: EdgeInsets.only(top: 5.h, left: 10.w, right: 10.w),
                   child: Text(
                     LocaleKeys.addToTheCart.tr(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: whiteBackground, fontFamily: FontFamily.bold),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: EdgeInsets.only(top: 5.h, left: 10.w, right: 10.w),
-                  child: Text(
+                  child: const Text(
                     '225 ر.س',
                     style: TextStyle(
                         color: whiteBackground, fontFamily: FontFamily.bold),

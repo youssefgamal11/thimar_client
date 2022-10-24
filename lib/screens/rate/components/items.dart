@@ -2,17 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/widgets/inputs/inputs.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 import '../../../../../core/styles/colors.dart';
-import '../../../../../gen/assets.gen.dart';
 
-class RateItem extends StatelessWidget {
-  RateItem({Key? key, this.image, this.productName, this.productPrice})
+class ItemRate extends StatelessWidget {
+  const ItemRate({Key? key, this.image, this.productName, this.productPrice})
       : super(key: key);
-  String? image, productName, productPrice;
+  final String? image, productName, productPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +71,7 @@ class RateItem extends StatelessWidget {
                                   fontSize: 13.sp),
                             ),
                             SizedBox(
-                              width: 10,
+                              width: 10.w,
                             ),
                             Text(
                               '56 ر.س',
@@ -98,9 +96,7 @@ class RateItem extends StatelessWidget {
               allowHalfRating: true,
               itemCount: 5,
               itemSize: 20.h,
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
+              onRatingUpdate: (rating) {},
               itemBuilder: (context, _) {
                 return const Icon(
                   Icons.star,

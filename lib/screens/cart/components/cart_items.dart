@@ -1,10 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/gen/assets.gen.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
@@ -12,8 +11,8 @@ import 'package:thimar_app/generated/locale_keys.g.dart';
 
 import '../../../../../core/widgets/buttons/authButton.dart';
 
-class CartItem extends StatelessWidget {
-  CartItem({Key? key, this.image, this.productName, this.productPrice})
+class ItemCart extends StatelessWidget {
+  ItemCart({Key? key, this.image, this.productName, this.productPrice})
       : super(key: key);
   String? image, productName, productPrice;
 
@@ -146,7 +145,7 @@ class DiscountConainter extends StatelessWidget {
                       style: textStyle,
                     ),
                     Text(
-                      '${total} ر.س',
+                      '$total ر.س',
                       style: textStyle,
                     )
                   ],
@@ -213,7 +212,7 @@ class DiscountConainter extends StatelessWidget {
                         )
                       ],
                     )
-                  : SizedBox.shrink()
+                  : const SizedBox.shrink()
             ],
           ),
         ),

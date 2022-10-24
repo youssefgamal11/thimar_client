@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
@@ -11,7 +9,6 @@ import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
 
 import '../../../../core/styles/colors.dart';
-import '../../../../core/styles/styles.dart';
 
 class AddAddressScreen extends StatelessWidget {
   const AddAddressScreen({Key? key}) : super(key: key);
@@ -22,7 +19,7 @@ class AddAddressScreen extends StatelessWidget {
       appBar: CustomAppBar(title: LocaleKeys.addAddress.tr(), hasLeading: true),
       body: Column(
         children: [
-          Container(
+          SizedBox(
               height: 350.h,
               child: Image.asset(
                 Assets.images.locationImage.path,

@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
@@ -21,7 +20,7 @@ class DeliverNowScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.dliverNow.tr(),
         hasLeading: true,
-        screenName: Homepage(),
+        screenName: const Homepage(),
         hight: 120.h,
       ),
       body: SingleChildScrollView(

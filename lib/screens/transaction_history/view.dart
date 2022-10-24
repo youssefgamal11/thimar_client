@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_app/core/widgets/custom_appbar.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
@@ -24,9 +22,9 @@ class TransactionHistory extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              WalletCharge(),
+              const WalletCharge(),
               SizedBox(height: 10.h),
-              PaidForThisProduct(),
+              const PaidForThisProduct(),
             ],
           ),
         ),

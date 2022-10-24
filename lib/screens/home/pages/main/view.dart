@@ -1,12 +1,16 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kiwi/kiwi.dart';
 import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/screens/cart/view.dart';
+import 'package:thimar_app/screens/home/pages/main/bloc/bloc.dart';
+import 'package:thimar_app/screens/home/pages/main/bloc/events.dart';
+import 'package:thimar_app/screens/home/pages/main/bloc/states.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/widgets/inputs/inputs.dart';
 import '../../../../gen/assets.gen.dart';
@@ -15,15 +19,14 @@ import '../../components/product_item.dart';
 import '../../components/sections.dart';
 
 class MainScreen extends StatelessWidget {
-  MainScreen({Key? key}) : super(key: key);
-  List<String> carouselImages = [
-    Assets.images.vegtables.path,
-    Assets.images.vegtables.path,
-    Assets.images.vegtables.path,
-    Assets.images.vegtables.path,
-  ];
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final bloc = KiwiContainer().resolve<MainBloc>()
+      ..add(MainGetSliderDataEvent())
+      ..add(MainGetCategoriesDataEvent())
+      ..add(MainGetProductsEvent());
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +76,7 @@ class MainScreen extends StatelessWidget {
                 width: 32.w,
                 child: TextButton(
                     onPressed: () {
-                      navigateTo(leaveHistory: true, page: CartScreen());
+                      navigateTo(leaveHistory: true, page: const CartScreen());
                     },
                     style: TextButton.styleFrom(
                         backgroundColor: hearButtonBackgroundColor,
@@ -99,18 +102,34 @@ class MainScreen extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          CarouselSlider(
-              items: carouselImages
-                  .map((e) => Image.asset(
-                        e,
-                        fit: BoxFit.cover,
-                      ))
-                  .toList(),
-              options: CarouselOptions(
-                  autoPlay: true,
-                  reverse: true,
-                  height: 160.h,
-                  viewportFraction: 1)),
+          BlocBuilder(
+              bloc: bloc,
+              builder: (context, state) {
+                if (bloc.sliderModel == null) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is SliderDataFailState) {
+                  return const Text('failed slider state');
+                } else {
+                  return CarouselSlider(
+                      items: List.generate(
+                        bloc.sliderModel!.data!.length,
+                        (index) => Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              bloc.sliderModel!.data![index].media!,
+                            ),
+                          )),
+                        ),
+                      ),
+                      options: CarouselOptions(
+                          autoPlay: true,
+                          reverse: true,
+                          height: 160.h,
+                          viewportFraction: 1));
+                }
+              }),
           SizedBox(
             height: 15.h,
           ),
@@ -130,46 +149,32 @@ class MainScreen extends StatelessWidget {
           SizedBox(
             height: 15.h,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Row(
-                children: [
-                  SectionComponent(
-                      sectionName: LocaleKeys.vegtables.tr(),
-                      sectionColor: vegatableConatinerColor,
-                      imagePath: Assets.images.svgImages.vegetable),
-                  SizedBox(width: 10.w),
-                  SectionComponent(
-                      sectionName: LocaleKeys.fruits.tr(),
-                      sectionColor: fruitsContainerColor,
-                      imagePath: Assets.images.svgImages.fruit),
-                  SizedBox(width: 10.w),
-                  SectionComponent(
-                      sectionName: LocaleKeys.steak.tr(),
-                      sectionColor: steakContainerColor,
-                      imagePath: Assets.images.svgImages.steak),
-                  SizedBox(width: 10.w),
-                  SectionComponent(
-                      sectionName: LocaleKeys.spices.tr(),
-                      sectionColor: spicesContainerColor,
-                      imagePath: Assets.images.svgImages.spices),
-                  SizedBox(width: 10.w),
-                  SectionComponent(
-                      sectionName: LocaleKeys.dates.tr(),
-                      sectionColor: datesContainerColor,
-                      imagePath: Assets.images.svgImages.dates),
-                  SizedBox(width: 10.w),
-                  SectionComponent(
-                      sectionName: LocaleKeys.almond.tr(),
-                      sectionColor: nutsContainerColor,
-                      imagePath: Assets.images.svgImages.almond),
-                  SizedBox(width: 10.w),
-                ],
-              ),
-            ),
-          ),
+          BlocBuilder(
+              bloc: bloc,
+              builder: (context, state) {
+                if (bloc.categoriesModel == null) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is CategoriesDataFailState) {
+                  return const Text('failed category state');
+                } else {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      child: Row(
+                          children: List.generate(
+                        bloc.categoriesModel!.data!.length,
+                        (index) => SectionComponent(
+                            sectionName: bloc.categoriesModel!.data![index].name
+                                .toString(),
+                            sectionColor: vegatableConatinerColor,
+                            imagePath:
+                                bloc.categoriesModel!.data![index].media!),
+                      )),
+                    ),
+                  );
+                }
+              }),
           SizedBox(
             height: 10.h,
           ),
@@ -180,25 +185,44 @@ class MainScreen extends StatelessWidget {
               style: TextStyle(fontSize: 15.sp),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 6,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 2,
-                  childAspectRatio: 1 / 1.5,
-                ),
-                itemBuilder: (context, index) {
-                  return ProductItem();
-                }),
-          )
+          BlocBuilder(
+              bloc: bloc,
+              builder: (context, state) {
+                if (bloc.productsModel == null) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is ProductsDataFailState) {
+                  return const Text('category product failled state');
+                } else {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: bloc.productsModel!.data!.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 0,
+                          mainAxisSpacing: 2,
+                          childAspectRatio: 163 / 250,
+                        ),
+                        itemBuilder: (context, index) {
+                          return ItemProduct(
+                            productName: bloc.productsModel!.data![index].title,
+                            discount: bloc.productsModel!.data![index].discount,
+                            networkImage:
+                                bloc.productsModel!.data![index].mainImage,
+                            amount: bloc.productsModel!.data![index].unit!.name,
+                            price: bloc.productsModel!.data![index].price,
+                            priceBeforeDiscount: bloc.productsModel!
+                                .data![index].priceBeforeDiscount,
+                          );
+                        }),
+                  );
+                }
+              })
         ],
       ),
     );
-    ;
   }
 }

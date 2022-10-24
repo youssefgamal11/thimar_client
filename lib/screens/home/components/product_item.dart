@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,10 +10,21 @@ import 'package:thimar_app/gen/fonts.gen.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../generated/locale_keys.g.dart';
 
-class ProductItem extends StatelessWidget {
-  ProductItem({Key? key, this.addToCartExist = true}) : super(key: key);
+class ItemProduct extends StatelessWidget {
+  ItemProduct(
+      {Key? key,
+      this.addToCartExist = true,
+      this.networkImage,
+      this.discount,
+      this.productName,
+      this.amount,
+      this.price,
+      this.priceBeforeDiscount})
+      : super(key: key);
   bool addToCartExist;
-
+  String? networkImage, productName, amount;
+  double? discount, price;
+  int? priceBeforeDiscount;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,13 +42,19 @@ class ProductItem extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 children: [
                   Center(
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15.r),
-                        child: Image.asset(
-                          Assets.images.tomato.path,
-                          width: 145.w,
-                          height: 117.h,
-                        )),
+                    child: Container(
+                      width: 145.w,
+                      height: 117.h,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            networkImage!,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(16.r),
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 10.w),
@@ -49,7 +68,7 @@ class ProductItem extends StatelessWidget {
                         height: 20.h,
                         child: Center(
                           child: Text(
-                            '45% -',
+                            '${discount!}% -',
                             style: TextStyle(
                                 color: discountTextColor,
                                 fontWeight: FontWeight.bold,
@@ -67,9 +86,9 @@ class ProductItem extends StatelessWidget {
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                    child: const Text(
-                      'طماطم',
-                      style: TextStyle(
+                    child: Text(
+                      productName!,
+                      style: const TextStyle(
                           color: greenFontColor, fontFamily: FontFamily.bold),
                     ),
                   ),
@@ -77,45 +96,49 @@ class ProductItem extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                       horizontal: 10.h,
                     ),
-                    child: const Text(
-                      'السعر /كجم',
-                      style: TextStyle(color: priceColor),
+                    child: Text(
+                      'السعر /${amount!}',
+                      style: const TextStyle(color: priceColor),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Row(
-                      children: [
-                        const Text(
-                          '45 ر.س',
-                          style: TextStyle(
-                              color: greenFontColor,
-                              fontFamily: FontFamily.bold),
-                        ),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        const Text(
-                          '56 ر.س',
-                          style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              color: discountPriceColor),
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        Container(
-                          width: 30.w,
-                          height: 30.h,
-                          decoration: BoxDecoration(
-                              color: homeAddButton,
-                              borderRadius: BorderRadius.circular(5.r)),
-                          child: IconButton(
-                              onPressed: () {},
-                              icon: SvgPicture.asset(
-                                  Assets.images.svgImages.add)),
-                        ),
-                      ],
+                    child: SizedBox(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            child: Text(
+                              '${price!} ر.س',
+                              style: const TextStyle(
+                                  color: greenFontColor,
+                                  fontFamily: FontFamily.bold),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          SizedBox(
+                            child: Text(
+                              '$priceBeforeDiscount ر.س',
+                              style: const TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  color: discountPriceColor),
+                            ),
+                          ),
+                          const Spacer(),
+                          Container(
+                            width: 30.w,
+                            height: 30.h,
+                            decoration: BoxDecoration(
+                                color: homeAddButton,
+                                borderRadius: BorderRadius.circular(5.r)),
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    Assets.images.svgImages.add)),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

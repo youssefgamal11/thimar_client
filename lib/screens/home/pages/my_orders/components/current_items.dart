@@ -11,7 +11,7 @@ class CurrentItems extends StatelessWidget {
       body: ListView.builder(
           itemCount: 20,
           itemBuilder: (context, index) {
-            return const OrderItem();
+            return const ItemOrder();
           }),
     );
   }

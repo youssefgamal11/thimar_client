@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   listener: (context, state) async {
                     if (state is LoginSucessState) {
                       Toast.show(LocaleKeys.loginSuccess.tr(), context);
-                      navigateTo(leaveHistory: false, page: Homepage());
+                      navigateTo(leaveHistory: false, page: const Homepage());
                       bloc.clearFields();
                     } else if (state is LoginFailState) {
                       Toast.show(LocaleKeys.loginFailed.tr(), context);
