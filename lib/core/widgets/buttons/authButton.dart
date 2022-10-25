@@ -88,7 +88,7 @@ class CustomIconButton extends StatelessWidget {
   double width, hight;
   var svgPic;
   Color iconColor, backgroundColor;
-  Function? function;
+  VoidCallback? function;
   bool isAssetImage;
   String? assetImagePath;
 

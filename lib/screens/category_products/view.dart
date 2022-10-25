@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kiwi/kiwi.dart';
+import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/styles/colors.dart';
 import 'package:thimar_app/core/styles/styles.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
@@ -17,6 +18,7 @@ import 'package:thimar_app/screens/category_products/bloc/events.dart';
 import 'package:thimar_app/screens/category_products/bloc/states.dart';
 import 'package:thimar_app/screens/home/components/product_item.dart';
 import 'package:thimar_app/screens/home/view.dart';
+import 'package:thimar_app/screens/product_details/view.dart';
 
 class CategoryProductsScreen extends StatefulWidget {
   CategoryProductsScreen(
@@ -217,6 +219,12 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                           itemBuilder: (context, index) {
                             var productData = state.model.data![index];
                             return ItemProduct(
+                              function: () {
+                                navigateTo(
+                                    leaveHistory: true,
+                                    page: ProductDetailsScreen(
+                                        productId: productData.id));
+                              },
                               addToCartExist: false,
                               networkImage: productData.mainImage,
                               discount: productData.discount,

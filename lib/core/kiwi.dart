@@ -3,6 +3,7 @@ import 'package:thimar_app/screens/auth/confirm_code/bloc/bloc.dart';
 import 'package:thimar_app/screens/auth/forget_password/bloc/bloc.dart';
 import 'package:thimar_app/screens/category_products/bloc/bloc.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/bloc.dart';
+import 'package:thimar_app/screens/product_details/bloc/bloc.dart';
 
 import '../screens/auth/change_password/bloc/bloc.dart';
 import '../screens/auth/login/bloc/bloc.dart';
@@ -19,4 +20,5 @@ void initKiwi() {
   container.registerFactory((container) => ChangePasswordBloc());
   container.registerFactory((container) => MainBloc());
   container.registerFactory((container) => CategoryProductsBloc());
+  container.registerFactory((container) => ProductDetailsBloc());
 }

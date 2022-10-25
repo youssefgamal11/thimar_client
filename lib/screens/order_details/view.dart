@@ -9,8 +9,8 @@ import 'package:thimar_app/screens/cart/components/cart_items.dart';
 import 'package:thimar_app/screens/home/pages/my_orders/components/order_item.dart';
 import 'components/address_item.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({Key? key}) : super(key: key);
+class OrderDetailsScreen extends StatelessWidget {
+  const OrderDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

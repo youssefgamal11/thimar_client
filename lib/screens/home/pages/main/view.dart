@@ -12,6 +12,8 @@ import 'package:thimar_app/screens/category_products/view.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/bloc.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/events.dart';
 import 'package:thimar_app/screens/home/pages/main/bloc/states.dart';
+import 'package:thimar_app/screens/order_details/view.dart';
+import 'package:thimar_app/screens/product_details/view.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/widgets/inputs/inputs.dart';
 import '../../../../gen/assets.gen.dart';
@@ -224,6 +226,13 @@ class MainScreen extends StatelessWidget {
                             price: productData.price,
                             priceBeforeDiscount:
                                 productData.priceBeforeDiscount,
+                            function: () {
+                              navigateTo(
+                                  leaveHistory: true,
+                                  page: ProductDetailsScreen(
+                                    productId: productData.id,
+                                  ));
+                            },
                           );
                         }),
                   );
