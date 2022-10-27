@@ -12,9 +12,15 @@ import 'package:thimar_app/generated/locale_keys.g.dart';
 import '../../../../../core/widgets/buttons/authButton.dart';
 
 class ItemCart extends StatelessWidget {
-  ItemCart({Key? key, this.image, this.productName, this.productPrice})
+  ItemCart(
+      {Key? key,
+      this.image,
+      this.productName,
+      this.productPrice,
+      this.productAmount})
       : super(key: key);
-  String? image, productName, productPrice;
+  String? image, productName;
+  num? productPrice, productAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +42,11 @@ class ItemCart extends StatelessWidget {
                     height: 78.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    child: Image.asset(
-                      image!,
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            image!,
+                          )),
                     )),
                 Padding(
                   padding:
@@ -77,7 +85,7 @@ class ItemCart extends StatelessWidget {
                                 svgPic: Assets.images.svgImages.add,
                                 backgroundColor: whiteBackground),
                             Text(
-                              '5',
+                              '${productAmount!}',
                               style: TextStyle(
                                   fontFamily: FontFamily.medium,
                                   color: greenFontColor,
@@ -104,116 +112,6 @@ class ItemCart extends StatelessWidget {
                     backgroundColor: lightPinkColor)
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class DiscountConainter extends StatelessWidget {
-  DiscountConainter(
-      {Key? key,
-      this.hasPaymentMethod = false,
-      required this.discount,
-      required this.total,
-      required this.totalAfterDiscount})
-      : super(key: key);
-  String total, discount, totalAfterDiscount;
-  bool hasPaymentMethod;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: hasPaymentMethod ? 343.w : 346,
-        height: 111.h,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.r), color: mintgreenColor),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.totalProducts.tr(),
-                      style: textStyle,
-                    ),
-                    Text(
-                      '$total ر.س',
-                      style: textStyle,
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.discount.tr(),
-                      style: textStyle,
-                    ),
-                    Text(
-                      '$discount ر.س',
-                      style: textStyle,
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: 1,
-                width: double.infinity,
-                color: dividerColor,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.total.tr(),
-                      style: textStyle,
-                    ),
-                    Text(
-                      '$totalAfterDiscount ر.س',
-                      style: textStyle,
-                    )
-                  ],
-                ),
-              ),
-              hasPaymentMethod
-                  ? Column(
-                      children: [
-                        Container(
-                          height: 1,
-                          width: double.infinity,
-                          color: dividerColor,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(LocaleKeys.payWith.tr(), style: textStyle),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Image.asset(
-                              Assets.images.visa.path,
-                              width: 40,
-                              height: 20,
-                            )
-                          ],
-                        )
-                      ],
-                    )
-                  : const SizedBox.shrink()
-            ],
           ),
         ),
       ),

@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 class ProductsDetailsStates {}
 
 class ProductsDetailsInitialState extends ProductsDetailsStates {}
@@ -16,4 +18,17 @@ class SimillarProductsDataFailState extends ProductsDetailsStates {
   SimillarProductsDataFailState({required this.error});
 }
 
-class ChangeActiveIndex extends ProductsDetailsStates {}
+class ChangeActiveIndexState extends ProductsDetailsStates {}
+
+class IncreaseAmountState extends ProductsDetailsStates {}
+
+class DecreaseAmountState extends ProductsDetailsStates {}
+
+class PutIntoCartLoadingState extends ProductsDetailsStates {}
+
+class PutIntoCartSucessState extends ProductsDetailsStates {}
+
+class PutIntoCartFailtate extends ProductsDetailsStates {
+  final String error;
+  PutIntoCartFailtate({required this.error});
+}

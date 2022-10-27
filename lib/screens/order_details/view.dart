@@ -46,9 +46,9 @@ class OrderDetailsScreen extends StatelessWidget {
                 height: 15.h,
               ),
               DiscountConainter(
-                discount: '669',
-                total: '989',
-                totalAfterDiscount: '320',
+                discount: 64343,
+                total: 468,
+                totalAfterDiscount: 343,
                 hasPaymentMethod: true,
               ),
               SizedBox(

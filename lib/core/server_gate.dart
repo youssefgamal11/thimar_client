@@ -13,10 +13,12 @@ class ServerGate {
   //هنا ال base url
   late Dio dio;
   String baseUrl = 'https://thimar.amr.aait-d.com/public/api/';
+  String fakeToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdGhpbWFyLmFtci5hYWl0LWQuY29tXC9wdWJsaWNcL2FwaVwvbG9naW4iLCJpYXQiOjE2NjY3MTUwNjEsImV4cCI6MTY5ODI1MTA2MSwibmJmIjoxNjY2NzE1MDYxLCJqdGkiOiJsdnlnZWVQYjdXYk9UOTBBIiwic3ViIjoyNzMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.c4mIIogkhUoxRoDYGy5OM0EA5oN6Rr-RfS47gDDsz5A';
 
   ServerGate() {
     dio = Dio(BaseOptions(baseUrl: baseUrl, headers: {
-      "Authorization": "Bearer ${CacheHelper.getUserToken()}",
+      "Authorization": "Bearer ${fakeToken}}",
       "Accept": "application/json",
       "Accept-Language": CacheHelper.getLang(),
     }));

@@ -79,7 +79,7 @@ class MainScreen extends StatelessWidget {
                 width: 32.w,
                 child: TextButton(
                     onPressed: () {
-                      navigateTo(leaveHistory: true, page: const CartScreen());
+                      navigateTo(leaveHistory: true, page: CartScreen());
                     },
                     style: TextButton.styleFrom(
                         backgroundColor: hearButtonBackgroundColor,

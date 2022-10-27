@@ -166,7 +166,7 @@ class CompleteOrderScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.h),
                 DiscountConainter(
-                    discount: '40', total: '200', totalAfterDiscount: '160'),
+                    discount: 40, total: 200, totalAfterDiscount: 160),
                 SizedBox(
                   height: 60.h,
                 ),

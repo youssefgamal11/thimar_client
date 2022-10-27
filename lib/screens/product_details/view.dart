@@ -7,6 +7,8 @@ import 'package:kiwi/kiwi.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:thimar_app/core/naviagtion.dart';
 import 'package:thimar_app/core/styles/colors.dart';
+import 'package:thimar_app/core/styles/styles.dart';
+import 'package:thimar_app/core/toast.dart';
 import 'package:thimar_app/core/widgets/buttons/authButton.dart';
 import 'package:thimar_app/gen/fonts.gen.dart';
 import 'package:thimar_app/generated/locale_keys.g.dart';
@@ -15,9 +17,9 @@ import 'package:thimar_app/screens/home/pages/main/bloc/states.dart';
 import 'package:thimar_app/screens/home/view.dart';
 import 'package:thimar_app/screens/product_details/bloc/bloc.dart';
 import 'package:thimar_app/screens/product_details/bloc/events.dart';
+import 'package:thimar_app/screens/product_details/components/items.dart';
 import '../../../../gen/assets.gen.dart';
 import 'bloc/states.dart';
-import 'components/rate_item.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({Key? key, required this.productId})
@@ -203,9 +205,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                                   svgPic: Assets
                                                       .images.svgImages.add,
                                                   backgroundColor:
-                                                      whiteBackground),
+                                                      whiteBackground,
+                                                  function: () {
+                                                    bloc.increaseAmount();
+                                                  }),
                                               Text(
-                                                '5',
+                                                '${bloc.productAmount}',
                                                 style: TextStyle(
                                                     fontFamily:
                                                         FontFamily.medium,
@@ -213,13 +218,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                                     fontSize: 15.sp),
                                               ),
                                               CustomIconButton(
-                                                  hight: 29.h,
-                                                  width: 29.w,
-                                                  iconColor: greenButtonColor,
-                                                  svgPic: Assets
-                                                      .images.svgImages.minus,
-                                                  backgroundColor:
-                                                      whiteBackground)
+                                                hight: 29.h,
+                                                width: 29.w,
+                                                iconColor: greenButtonColor,
+                                                svgPic: Assets
+                                                    .images.svgImages.minus,
+                                                backgroundColor:
+                                                    whiteBackground,
+                                                function: () {
+                                                  bloc.decreaseAmount();
+                                                },
+                                              )
                                             ],
                                           ),
                                         )
@@ -320,7 +329,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             return const Center(
                                 child: CircularProgressIndicator());
                           } else if (state is SimillarProductsDataFailState) {
-                            return Text('simillar products faill state');
+                            return const Text('simillar products faill state');
                           } else {
                             return SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
@@ -361,41 +370,96 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 700.h),
-          child: Container(
-            width: double.infinity,
-            height: 60.h,
-            color: greenButtonColor,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: Row(children: [
-                CustomIconButton(
-                    hight: 32.h,
-                    width: 35.w,
-                    iconColor: whiteBackground,
-                    svgPic: Assets.images.svgImages.shopcart,
-                    backgroundColor: lightGreenColor),
-                Padding(
-                  padding: EdgeInsets.only(top: 5.h, left: 10.w, right: 10.w),
-                  child: Text(
-                    LocaleKeys.addToTheCart.tr(),
-                    style: const TextStyle(
-                        color: whiteBackground, fontFamily: FontFamily.bold),
+        BlocConsumer(
+          bloc: bloc,
+          listener: (context, state) {
+            if (state is PutIntoCartFailtate) {
+              Toast.show(state.error, context);
+            } else if (state is PutIntoCartSucessState) {
+              showModalBottomSheet(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25.r),
+                        topRight: Radius.circular(25.r)),
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return BuildSheet(
+                      productAmount: bloc.productAmount,
+                      productImage: bloc.productDetailsModel!.data!.mainImage,
+                      productName: bloc.productDetailsModel!.data!.title,
+                      productsTotalPrice: bloc.totalPrice,
+                    );
+                  });
+            }
+          },
+          builder: (context, state) {
+            if (state is PutIntoCartLoadingState) {
+              return const Center(child: CircularProgressIndicator());
+            } else {
+              return Padding(
+                padding: EdgeInsets.only(top: 700.h),
+                child: GestureDetector(
+                  onTap: () {
+                    bloc.add(PutIntoCartEvent());
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 60.h,
+                    color: greenButtonColor,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      child: Row(children: [
+                        CustomIconButton(
+                            hight: 32.h,
+                            width: 35.w,
+                            iconColor: whiteBackground,
+                            svgPic: Assets.images.svgImages.shopcart,
+                            backgroundColor: lightGreenColor),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 5.h, left: 10.w, right: 10.w),
+                          child: Text(
+                            LocaleKeys.addToTheCart.tr(),
+                            style: const TextStyle(
+                                color: whiteBackground,
+                                fontFamily: FontFamily.bold),
+                          ),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 5.h, left: 10.w, right: 10.w),
+                          child: BlocBuilder(
+                              bloc: bloc,
+                              builder: (context, state) {
+                                if (bloc.productDetailsModel == null) {
+                                  return Transform.scale(
+                                    scale: 0.5.w,
+                                    child: const CircularProgressIndicator(
+                                      color: whiteBackground,
+                                    ),
+                                  );
+                                } else if (state is ProductsDetailsFailState) {
+                                  return const Text(
+                                      'product details faill state');
+                                } else {
+                                  return Text(
+                                    '${bloc.totalPrice ?? bloc.productDetailsModel!.data!.price} ر.س',
+                                    style: const TextStyle(
+                                        color: whiteBackground,
+                                        fontFamily: FontFamily.bold),
+                                  );
+                                }
+                              }),
+                        ),
+                      ]),
+                    ),
                   ),
                 ),
-                const Spacer(),
-                Padding(
-                  padding: EdgeInsets.only(top: 5.h, left: 10.w, right: 10.w),
-                  child: const Text(
-                    '225 ر.س',
-                    style: TextStyle(
-                        color: whiteBackground, fontFamily: FontFamily.bold),
-                  ),
-                ),
-              ]),
-            ),
-          ),
+              );
+            }
+          },
         ),
       ],
     ));
